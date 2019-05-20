@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PageInteraction</title>
+    <script src="../lib/vue.js"></script>
+
+    <!--样式规定-->
+    <style>
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity .5s;
+        }
+
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<!--定义显示的节点-->
+<div id="app">
+    <!--在节点中定义 click 方法-->
+    <button v-on:click="show=!show">click</button>
+    <!--效果显示部分-->
+    <transition name="fade">
+        <p v-if="show">hello vue</p>
+    </transition>
+</div>
+
+<script>
+    //创建根实例
+    new Vue({
+        el:'#app',
+        //定义绑定在标签中的变量
+        data:{
+            show:true
+        }
+    })
+</script>
+</body>
+</html>
