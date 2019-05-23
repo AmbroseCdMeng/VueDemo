@@ -1,0 +1,55 @@
+/* mongo 数据集基本构建 伪代码 */
+
+//电影
+var movie = new Schema({
+  moviewName : String,
+  movieImg : String,
+  movieVideo: String,
+  movieDownload:String,
+  movieTime:String,
+  movieNumSuppose:int,
+  movieNumDownload:int,
+  movieMainPage:Boolean,
+})
+
+//评论
+var Comment = new Schema({
+  movie_id:String,
+  user_id:String,
+  context:String,
+  check:Boolean
+})
+
+//用户
+var User = new Schema({
+  username : String,
+  password:String,
+  userMail:String,
+  userPhone:String,
+  userAdmin:Boolean,
+  userPower:Int,
+  userStop:Boolean
+})
+
+//主页
+var Recommend = new Schema({
+  recommendImg :String,
+  recommendSrc:String,
+  recommendTitle:String
+})
+
+//邮件
+var Mail = new Schema({
+  mailToUser :String,
+  mailFromUser:String,
+  mailTitle:String,
+  mailContext:String,
+  mailSendTime:String
+})
+
+//文章
+var Article = new Schema({
+  articleTitles:String,
+  articleContext:String,
+  articleTime:String
+})
