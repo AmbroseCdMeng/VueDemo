@@ -1,0 +1,36 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+    递归组件。
+    组件在它的模板内递归调用自己。
+    需要给组件设置 name 选项，指定调用。
+
+    如下例会生成三层 div
+
+    递归组件常用来开发具有位置层级关系的独立组件。例如级联选择器、树形控件等
+</pre>
+
+<div id="app">
+    <child-component :count="1">
+
+    </child-component>
+</div>
+
+<script>
+    Vue.component('child-component', {
+        name: 'child-component',
+        props: {
+            count: {
+                type: Number,
+                default: 1,
+            }
+        },
+        template: '<div>\
+                        <child-component :count="count + 1" v-if="count < 3"></child-component>\
+                    </div>'
+    });
+
+    var app = new Vue({
+        el: '#app',
+    })
+</script>

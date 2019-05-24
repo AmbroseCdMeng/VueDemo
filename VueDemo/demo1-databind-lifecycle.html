@@ -1,0 +1,52 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<pre>
+    Vue 实例的生命周期
+</pre>
+
+
+<div id="app"></div>
+
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '',
+        },
+        methods: {
+
+        },
+        // 实例初始化之前
+        beforeCreate: function () {
+            console.log("实例初始化之前");
+        },
+        // 实例创建完成
+        created: function () {
+            console.log("实例创建完成");
+        },
+        // 实例挂载之前
+        beforeMount: function () {
+            console.log("实例挂载之前");
+        },
+        // el 被创建的 vm.$el 替换并挂载到实例上之后
+        mounted: function () {
+            console.log("实例挂载之后");
+        },
+        // 数据更新，DOM 重新渲染之前
+        beforeUpdate: function () {
+            console.log("数据更新 DOM 重新渲染之前");
+        },
+        // 数据更新，DOM 重新渲染之后
+        updated: function () {
+            console.log("数据更新 DOM 重新渲染之后");
+        },
+        // 实例销毁之前
+        beforeDestroy: function () {
+            console.log("实例销毁之前");
+        },
+        // 实例销毁之后
+        destroyed: function () {
+            console.log("实例销毁之后");
+        },
+    })
+</script>

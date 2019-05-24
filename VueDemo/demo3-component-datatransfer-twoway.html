@@ -1,0 +1,41 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+组件双向数据绑定
+
+v-model 创建自定义表单输入组件，完成数据双向绑定
+使用 v-model 绑定，$emit 中可以调用 input 事件传值
+</pre>
+
+
+<div id='app'>
+    <p>{{total}}</p>
+    <my-component v-model="total"></my-component>
+    <button @click="handleReduce">-1</button>
+</div>
+
+<script>
+    Vue.component('my-component', {
+        props: ['value'], //父组件传入
+        template: '<input :value="value" @input="updateValue">',
+        methods: {
+            //子组件的值变化时，同步父组件的值
+            updateValue: function (event) {
+                //alert(event.target.value);
+                this.$emit('input', event.target.value); //子组件向父附件 input 事件传值
+            },
+        },
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            total: 0,
+        },
+        methods: {
+            handleReduce: function () {
+                this.total--;
+            },
+        },
+    })
+</script>

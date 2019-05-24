@@ -1,0 +1,42 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+    动态组件。
+
+    component 元素来动态挂载不同的组件。
+    使用 is 来指定要挂载的组件。
+    
+</pre>
+
+<div id="app">
+    <component :is="currentView"></component>
+    <button @click="changeView('A')">ChangeView(A)</button>
+    <button @click="changeView('B')">ChangeView(B)</button>
+    <button @click="changeView('C')">ChangeView(C)</button>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        components: {
+            componentA: {
+                template: '<div>组件A</div>'
+            },
+            componentB: {
+                template: '<div>组件B</div>'
+            },
+            componentC: {
+                template: '<div>组件C</div>'
+            }
+        },
+        methods: {
+            changeView: function (c) {
+                //debugger;
+                this.currentView = 'component' + c;
+            },
+        },
+        data: {
+            currentView: 'componentA',
+        }
+    })
+</script>

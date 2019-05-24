@@ -1,0 +1,47 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<pre>
+Vue 2.x 中 使用 $slots 访问被 slot 分发的内容
+
+使用 $slots 可以访问具体名称的 slot
+    this.$slots.default 包括了所有没有被包含在具体名 slot 中的节点
+</pre>
+
+<div id="app">
+    <child-component>
+        <h2 slot="header">标题</h2>
+        <p>正文</p>
+        <p>更多 ...</p>
+        <div slot="footer">底部</div>
+    </child-component>
+</div>
+
+<script>
+    Vue.component('child-component', {
+        template: ' \
+                    <div>\
+                        <div class="header">\
+                            <slot name="header"></slot>\
+                        </div>\
+                        <div class="main">\
+                            <slot></slot>\
+                        </div>\
+                        <div class="footer">\
+                            <slot name="footer"></slot>\
+                        </div>\
+                    </div>\
+                    ',
+
+        /*实例创建并挂载之后*/
+        mounted: function () {
+            var header = this.$slots.header;
+            var main = this.$slots.main;
+            var footer = this.$slots.footer;
+            console.log(footer);
+            console.log(footer[0].elm.innnerHTML);
+        },
+    });
+
+    var app = new Vue({
+        el: '#app',
+    })
+</script>

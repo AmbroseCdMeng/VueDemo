@@ -1,0 +1,37 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+异步组件。
+
+Vue 允许将组件定义为一个工厂函数。动态解析组件。
+只需要在组件需要渲染时触发工厂函数，并且缓存结果，用于后面的渲染
+</pre>
+
+<div id="app">
+
+    <child-component>
+
+    </child-component>
+</div>
+
+<script>
+    // Vue.component('child-component', function (resolve, reject) {
+    // });
+
+    Vue.component('child-component', (resolve, reject) => {
+        window.setTimeout(() => {
+            /*工厂函数接收回调，setTimeout 只是为了演示异步效果*/
+            resolve({
+                template: '<div>此乃异步组件，异步渲染而成</div>'
+            }, 2000);
+        })
+    });
+
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        },
+    })
+</script>

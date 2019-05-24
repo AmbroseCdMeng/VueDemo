@@ -1,0 +1,51 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+
+子组件向父组件传递数据
+
+使用自定义事件。
+
+</pre>
+<div id="app">
+    <p>总数： {{total}} </p>
+    <!-- increase, reduce 组件之间的自定义事件 -->
+    <my-component @increase="handleGetTotal" @reduce="handleGetTotal">
+    </my-component>
+</div>
+<script>
+    Vue.component('my-component', {
+        template: ' <div>\
+                    <button @click= "handleincrease"> +1 </button> \
+                    <button @click= "handleReduce"> -1 </button> \
+                    </div>',
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            handleincrease: function () {
+                this.counter++;
+                this.$emit('increase', this.counter);
+            },
+            handleReduce: function () {
+                this.counter--;
+                this.$emit('reduce', this.counter);
+            }
+        }
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            total: 0
+        },
+
+        methods: {
+            handleGetTotal: function (total) {
+                this.total = total;
+            }
+        }
+    })
+</script>

@@ -1,0 +1,37 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+
+手动创建和挂载实例或组件
+
+Vue.extend 和 $mount 两个方法来动态创建和挂载实例或组件
+
+</pre>
+
+<div id="mount-div">
+
+</div>
+
+<script>
+    //创建组件或者实例
+    var myComponent = Vue.extend({
+        template: '<div>Hello: {{name}}</div>',
+        data: function () {
+            return {
+                name: 'Tom'
+            };
+        }
+    });
+
+    /* 手动挂载 -- 方法1 */
+    new myComponent().$mount('#mount-div');
+
+    /* 手动挂载 -- 方法2 */
+    new myComponent({
+        el: '#mount-div'
+    });
+
+    /* 手动挂载 -- 方法3 */
+    var component = new myComponent().$mount();
+    document.getElementById('mount-div').appendChild(component.$el);
+</script>

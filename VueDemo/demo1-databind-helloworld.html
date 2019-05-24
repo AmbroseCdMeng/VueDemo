@@ -1,0 +1,31 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+
+<pre>
+    基本 vue 实例。
+
+    插值表达式 {{}} 绑定数据。这种情况返回输出的是纯字符串。
+
+    如果想输出 HTML 文档并解析。可以使用 v-html。
+
+    如果想单纯的输出大括号 {{link}}} 不希望参与 Vue 绑定。可以使用 v-pre 跳过当前元素和它子元素的编译过程。
+</pre>
+
+
+<div id="app">
+    <h1>{{message}}</h1>
+    <hr>
+
+    <span>{{link}}</span>
+    <span v-html="link"></span>
+    <span v-pre>{{link}}</span>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'HelloWorld',
+            link: '<a href="./00index.html">返回首页</a>'
+        }
+    })
+</script>

@@ -1,0 +1,53 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+作用域插槽更具代表性的例子 -- 列表组件。
+
+允许组件自定义渲染列表的每一项。
+
+其效果类似与使用 v-for 循环父组件，但是更加灵活。
+
+使用作用域插槽既可以复用子组件的 slot，又可以使内容不一致，列表的内容渲染权是由使用者掌握的，数据可以通过临时变量从子组件获取。
+
+★ 子组件中的 :book-name 会自动命名为 bookName 。这个在之前已经提过一次。
+☆ scope 属性在 2.5 版本之后建议写为 slot-scope
+
+</pre>
+
+<div id="app">
+    <my-list :books="books">
+        <template slot="book" slot-scope="props">
+            <li>{{props.bookName}}</li>
+        </template>
+    </my-list>
+</div>
+
+<script>
+    Vue.component('my-list', {
+        /* 子组件接收父组件传值 */
+        props: {
+            books: {
+                type: Array,
+                default: function () {
+                    return [];
+                }
+            }
+        },
+        template: ' <ul>\
+                        <slot name="book" v-for="book in books" :book-name = "book.name"></slot>\
+                    </ul>'
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            books: [{
+                name: 'Vue.js'
+            }, {
+                name: 'Vue.js -- slot'
+            }, {
+                name: 'Vue.js -- slot list'
+            }]
+        }
+    })
+</script>

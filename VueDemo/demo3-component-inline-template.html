@@ -1,0 +1,39 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+    内联模板。
+
+    组件模板一般定义在 template 下。
+    在使用组件时，给组件标签 inline-template 特性，组件就会将内容当做模板，而不是将内容分发，这样模板更加灵活。
+
+
+</pre>
+
+<div id="app">
+    <child-component inline-template>
+        <div>
+            <h2>在父组件中定义组件的模板</h2>
+            <p>{{message}}</p>
+            <p>{{msg}}</p>
+        </div>
+    </child-component>
+</div>
+
+<script>
+    Vue.component('child-component', {
+        //template: '',
+        data: function () {
+            return {
+                msg: '在子组件声明的数据',
+                message: '同名时优先使用子组件',
+            }
+        }
+    });
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '在父组件声明的数据',
+        },
+    })
+</script>
