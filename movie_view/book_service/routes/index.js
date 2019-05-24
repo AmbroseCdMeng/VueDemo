@@ -32,3 +32,7 @@ router.get('/mongooseTest', function (req, res, next) {
 });
 
 module.exports = router;
+
+
+//set DEBUG = book_service & npm start
+//http://localhost:3000/
