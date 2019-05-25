@@ -6,7 +6,7 @@ var user = require('../models/user');
 var crypto = require('crypto');
 var movie = require('../models/movie');
 var mail = require('../models/mail');
-var common = require('../models/comment');
+var comment = require('../models/comment');
 const init_token = 'TKL02o';
 
 
@@ -67,15 +67,6 @@ router.post('/register', function (req, res, next) {
   }
 });
 
-//用户提交评论
-router.post('/postComment', function (req, res, next) {
-
-});
-
-//用户点赞
-router.post('/support', function (req, res, next) {
-});
-
 //用户找回密码
 router.post('/findPassword', function (req, res, next) {
   //验证邮箱和电话
@@ -94,6 +85,34 @@ router.post('/findPassword', function (req, res, next) {
     }
   })
 });
+
+//用户提交评论
+router.post('/postComment', function (req, res, next) {
+  const username = req.body.username ? req.body.username : '匿名';
+  if (!req.body.movie_id || !req.body.context)
+    res.json({status: 1, message: 'id / 内容不能为空'});
+  else{
+    let saveComment = new comment({
+      username: username,
+      movie_id: req.body.movie_id,
+      context: req.body.context,
+      check: 1
+    });
+
+    //保存
+    saveComment.save(function(err){
+      if (err)
+        res.json({status:1, message:err});
+      else
+        res.json({status:0, message:'评论成功'});
+    })
+  }
+});
+
+//用户点赞
+router.post('/support', function (req, res, next) {
+});
+
 
 //用户发送邮件
 router.post('/sendEmail', function (req, res, next) {
