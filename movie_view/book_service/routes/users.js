@@ -30,10 +30,10 @@ router.post('/register', function (req, res, next) {
   }
 
   user.findByUsername(req.body.username, function (err, userSave) {
-
-    if (userSave.length !== 0)
+    //res.json(userSave.length);
+    if (userSave.length !== 0){
       res.json({status: 1, message: '用户已存在'});
-    else {
+    }else{
       //构造用户实例
       var register = new user({
         username: req.body.username,
@@ -44,6 +44,7 @@ router.post('/register', function (req, res, next) {
         userPower: 0,
         userStop: 0,
       });
+      //res.json({status:0, data:register})
       //保存。并返回注册成功的信息
       register.save(function (err) {
         if(err)
