@@ -10,11 +10,11 @@ var comment = new mongoose.Schema({
 });
 
 //数据操作方法
-comment.static.findByMovieId = function(m_id, callBack){
+comment.statics.findByMovieId = function(m_id, callBack){
   this.find({movie_id : m_id, check: true}, callBack);
 };
 
-comment.static.findAll = function(callBack){
+comment.statics.findAll = function(callBack){
   this.find({check:true}, callBack);
 };
 

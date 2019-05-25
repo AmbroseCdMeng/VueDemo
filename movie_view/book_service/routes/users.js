@@ -3,10 +3,10 @@ var router = express.Router();
 
 //引入相关文件和代码包
 var user = require('../models/user');
-var crypto = require('crypto');
 var movie = require('../models/movie');
 var mail = require('../models/mail');
 var comment = require('../models/comment');
+var crypto = require('crypto');
 const init_token = 'TKL02o';
 
 
@@ -40,7 +40,7 @@ router.post('/register', function (req, res, next) {
     res.json({status: 1, message: '用户名/密码/邮箱/电话不能为空'});
   } else {
     user.findByUsername(req.body.username, function (err, userSave) {
-      //res.json(userSave.length);
+      //res.json(userSave);
       if (userSave.length !== 0)
         res.json({status: 1, message: '用户已存在'});
       else {
@@ -91,7 +91,7 @@ router.post('/postComment', function (req, res, next) {
   const username = req.body.username ? req.body.username : '匿名';
   if (!req.body.movie_id || !req.body.context)
     res.json({status: 1, message: 'id / 内容不能为空'});
-  else{
+  else {
     let saveComment = new comment({
       username: username,
       movie_id: req.body.movie_id,
@@ -100,17 +100,32 @@ router.post('/postComment', function (req, res, next) {
     });
 
     //保存
-    saveComment.save(function(err){
+    saveComment.save(function (err) {
       if (err)
-        res.json({status:1, message:err});
+        res.json({status: 1, message: err});
       else
-        res.json({status:0, message:'评论成功'});
+        res.json({status: 0, message: '评论成功'});
     })
   }
 });
 
 //用户点赞
 router.post('/support', function (req, res, next) {
+  if (!req.body.movie_id)
+    res.json({status: 1, message: 'id 不能为空'});
+  else
+    movie.findById(req.body.movie_id, function (err, supportMovie) {
+      if (supportMovie == null || supportMovie.length === 0)
+        res.json({status: 1, message: 'id 有误'});
+      else
+        //res.json(supportMovie[0].movieNumSuppose);
+        movie.updateOne({_id: req.body.movie_id}, {movieNumSuppose: supportMovie[0].movieNumSuppose + 1}, function (err) {
+          if (err)
+            res.json({status: 1, message: '点赞失败', data: err});
+          else
+            res.json({status: 0, message: '点赞成功'});
+        })
+    })
 });
 
 
