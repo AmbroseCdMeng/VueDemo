@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js">
+      <change beforePath="$PROJECT_DIR$/movie_view/book_service/models/mail.js" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_service/models/mail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movie_view/book_service/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_service/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
+            <state relative-caret-position="140">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -42,17 +43,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movie_view/book_service/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="139" column="82" selection-start-line="139" selection-start-column="82" selection-end-line="139" selection-end-column="82" />
+            <state relative-caret-position="369">
+              <caret line="185" column="25" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="25" />
               <folding>
                 <element signature="e#472#975#0" />
                 <element signature="e#1039#2001#0" />
                 <element signature="e#2069#2659#0" />
                 <element signature="e#2726#3232#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/mail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -93,7 +103,6 @@
         <option value="$PROJECT_DIR$/movie_view/src/router/index.js" />
         <option value="$PROJECT_DIR$/movie_view/build/webpack.base.conf.js" />
         <option value="$PROJECT_DIR$/movie_view/src/components/NewHello.Vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_service/models/mail.js" />
         <option value="$PROJECT_DIR$/movie_view/book_service/routes/index.js" />
         <option value="$PROJECT_DIR$/movie_view/book_service/common/db.js" />
         <option value="$PROJECT_DIR$/movie_view/src/mongodb" />
@@ -101,6 +110,7 @@
         <option value="$PROJECT_DIR$/movie_view/book_service/models/comment.js" />
         <option value="$PROJECT_DIR$/movie_view/book_service/models/movie.js" />
         <option value="$PROJECT_DIR$/movie_view/book_service/routes/users.js" />
+        <option value="$PROJECT_DIR$/movie_view/book_service/models/mail.js" />
       </list>
     </option>
   </component>
@@ -136,7 +146,14 @@
               <item name="303.Vue" type="b2602c69:ProjectViewProjectNode" />
               <item name="303.Vue" type="462c0819:PsiDirectoryNode" />
               <item name="movie_view" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="book_service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="303.Vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="303.Vue" type="462c0819:PsiDirectoryNode" />
+              <item name="movie_view" type="462c0819:PsiDirectoryNode" />
+              <item name="book_service" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +224,7 @@
       <workItem from="1558624032419" duration="238000" />
       <workItem from="1558700724388" duration="9334000" />
       <workItem from="1558778769050" duration="18753000" />
-      <workItem from="1558834492722" duration="1601000" />
+      <workItem from="1558834492722" duration="4643000" />
     </task>
     <task id="LOCAL-00001" summary="init vue project">
       <created>1558445791340</created>
@@ -304,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53902000" />
+    <option name="totallyTimeSpent" value="56944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -563,20 +580,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/mail.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/src/mongodb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -611,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/comment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -632,6 +632,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/src/mongodb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="42" selection-start-line="42" selection-end-line="46" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/movie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -641,14 +655,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="139" column="82" selection-start-line="139" selection-start-column="82" selection-end-line="139" selection-end-column="82" />
+        <state relative-caret-position="369">
+          <caret line="185" column="25" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="25" />
           <folding>
             <element signature="e#472#975#0" />
             <element signature="e#1039#2001#0" />
             <element signature="e#2069#2659#0" />
             <element signature="e#2726#3232#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/mail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>

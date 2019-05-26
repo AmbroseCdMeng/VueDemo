@@ -118,7 +118,7 @@ router.post('/support', function (req, res, next) {
       if (supportMovie == null || supportMovie.length === 0)
         res.json({status: 1, message: 'id 有误'});
       else
-        //res.json(supportMovie[0].movieNumSuppose);
+      //res.json(supportMovie[0].movieNumSuppose);
         movie.updateOne({_id: req.body.movie_id}, {movieNumSuppose: supportMovie[0].movieNumSuppose + 1}, function (err) {
           if (err)
             res.json({status: 1, message: '点赞失败', data: err});
@@ -129,19 +129,19 @@ router.post('/support', function (req, res, next) {
 });
 
 //用户下载
-router.post('/download', function(req, res, next){
+router.post('/download', function (req, res, next) {
   if (!req.body.movie_id)
-    res.json({status:1, message:'id 传递失败'});
-  else{
-    movie.findById(req.body.movie_id, function(err, downloadMovie){
+    res.json({status: 1, message: 'id 传递失败'});
+  else {
+    movie.findById(req.body.movie_id, function (err, downloadMovie) {
       if (downloadMovie == null || downloadMovie.length === 0)
-        res.json({status:1, message:'无效 id'});
+        res.json({status: 1, message: '无效 id'});
       else
-        movie.updateOne({_id:req.body.movie_id}, {movieNumDownload:downloadMovie[0].movieNumDownload + 1}, function (err) {
+        movie.updateOne({_id: req.body.movie_id}, {movieNumDownload: downloadMovie[0].movieNumDownload + 1}, function (err) {
           if (err)
-            res.json({status:1, message:'下载记录更新失败'});
+            res.json({status: 1, message: '下载记录更新失败'});
           else
-            res.json({status:1, message:'下载成功', data:downloadMovie});
+            res.json({status: 1, message: '下载成功', data: downloadMovie});
         })
     });
   }
@@ -149,10 +149,50 @@ router.post('/download', function(req, res, next){
 
 //用户发送邮件
 router.post('/sendEmail', function (req, res, next) {
+  if (!req.body.token || !req.body.user_id || !req.body.toUserName || !req.body.title || !req.body.context)
+  //res.json({user_id:req.body.user_id, token:getMD5Password(req.body.user_id)});
+    res.json({status: 1, message: '登录状态/用户登录信息/收件人/标题/内容 不能为空'});
+  else if (req.body.token === getMD5Password(req.body.user_id))
+    user.findByUsername(req.body.toUserName, function (err, toUser) {
+      if (toUser.length === 0)
+        res.json({status: 1, message: '收件用户不存在'});
+      else {
+        var newEmail = new mail({
+          mailFromUser: req.body.user_id,
+          mailToUser: toUser[0]._id,
+          mailTitle: req.body.title,
+          mailContext: req.body.context,
+          mailSendTime: new Date().getTime()
+        });
+        newEmail.save(function (err) {
+          if (err)
+            res.json({status: 1, message: '发送失败'});
+          else
+            res.json({status: 0, message: '发送成功'});
+        });
+      }
+    });
+  else
+    res.json({status: 1, message: '登录信息验证失败'});
 });
 
 //用户显示邮件。其中 receive 参数值为 1 时是发送的内容，值为 2 时是收到的内容
 router.post('/showEmail', function (req, res, next) {
+  if (!req.body.token || !req.body.user_id || !req.body.receive)
+    res.json({status: 1, message: '登录状态/用户登录信息/信息状态(1：发件箱；2：收件箱) 不能为空'});
+  else if (req.body.token !== getMD5Password(req.body.user_id))
+    res.json({status: 1, message: '登录信息验证失败'});
+  else if (req.body.receive === '1')
+    mail.findByFromUserId(req.body.user_id, function (err, sendMail) {
+      if (err) res.json({status: 1, message: '获取失败'});
+      else res.json({status: 0, message: '获取成功', data: sendMail});
+    });
+  else if (req.body.receive === '2')
+    mail.findByToUserId(req.body.user_id, function (err, receiveMail) {
+      if (err) res.json({status: 1, message: '获取失败'});
+      else res.json({status: 0, message: '获取成功', data: receiveMail});
+    })
+
 });
 
 //获取 MD5 的值。需要引入 crypto 加密组件
