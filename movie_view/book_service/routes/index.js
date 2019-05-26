@@ -1,10 +1,17 @@
-// express 示例
+// express 实例
 var express = require('express');
 // 路由引入
 var router = express.Router();
 
 // MongoDB 中间件 mongoose 引入
 var mongoose = require('mongoose');
+
+/*引入 movie 相关*/
+var recommend = require('../models/recommend');
+var movie = require('../models/movie');
+var article = require('../models/article');
+var user = require('../models/user');
+
 
 //定义路由
 /* GET home page. */
@@ -30,6 +37,58 @@ router.get('/mongooseTest', function (req, res, next) {
   /* 在浏览器中返回一个提示信息 */
   res.send('数据库连接测试');
 });
+
+
+/*定义显示相关路由*/
+/*主页推荐大图等*/
+router.get('/showIndex', function (req, res, next) {
+  recommend.findAll(function (err, getRecommend) {
+    res.json({status: 0, message: '获取成功', data: getRecommend});
+  })
+});
+
+/*主页排行榜*/
+router.get('/showRanking', function (req, res, next) {
+  movie.find({movieMainPage: true}, function (err, mainMovie) {
+    res.json({status: 0, message: '获取主页成功', data: mainMovie});
+  })
+});
+
+/*文章列表*/
+router.get('/showArticle', function (req, res, next) {
+  article.findAll(function (err, articles) {
+    res.json({status: 0, message: '获取文章列表', data: articles});
+  })
+});
+
+/*文章内容*/
+router.post('/articleDetail', function (req, res, next) {
+  if (!req.body.article_id)
+    res.json({status: 1, message: '文章 id 不能为空'});
+  else
+    article.findByArticleId(req.body.article_id, function (err, getArticle) {
+      res.json({status: 0, message: '获取成功', data: getArticle});
+    })
+});
+
+/*用户个人信息*/
+router.post('/showUser', function (req, res, next) {
+  if (!req.body.user_id)
+    res.json({status: 1, message: '用户 id 不能为空'});
+  else
+    user.findById(req.body.user_id, function (err, getUser) {
+      res.json({
+        status: 0, message: '获取成功', data: {
+          user_id: getUser._id,
+          username: getUser.username,
+          userMail: getUser.userMail,
+          userPhone: getUser.userPhone,
+          userStop: getUser.userStop,
+        }
+      })
+    })
+});
+
 
 module.exports = router;
 
