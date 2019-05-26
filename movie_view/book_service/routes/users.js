@@ -128,6 +128,24 @@ router.post('/support', function (req, res, next) {
     })
 });
 
+//用户下载
+router.post('/download', function(req, res, next){
+  if (!req.body.movie_id)
+    res.json({status:1, message:'id 传递失败'});
+  else{
+    movie.findById(req.body.movie_id, function(err, downloadMovie){
+      if (downloadMovie == null || downloadMovie.length === 0)
+        res.json({status:1, message:'无效 id'});
+      else
+        movie.updateOne({_id:req.body.movie_id}, {movieNumDownload:downloadMovie[0].movieNumDownload + 1}, function (err) {
+          if (err)
+            res.json({status:1, message:'下载记录更新失败'});
+          else
+            res.json({status:1, message:'下载成功', data:downloadMovie});
+        })
+    });
+  }
+});
 
 //用户发送邮件
 router.post('/sendEmail', function (req, res, next) {
