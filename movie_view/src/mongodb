@@ -2,7 +2,7 @@
 
 //电影
 var movie = new Schema({
-  moviewName : String,
+  movieName : String,
   movieImg : String,
   movieVideo: String,
   movieDownload:String,
