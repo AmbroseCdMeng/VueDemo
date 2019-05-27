@@ -1,4 +1,8 @@
 <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+
+
 <pre>
 Vue 2.x 中 使用 $slots 访问被 slot 分发的内容
 
@@ -39,7 +43,7 @@ Vue 2.x 中 使用 $slots 访问被 slot 分发的内容
             console.log(footer);
             console.log(footer[0].elm.innnerHTML);
         },
-    });
+    })
 
     var app = new Vue({
         el: '#app',

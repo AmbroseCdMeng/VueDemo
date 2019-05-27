@@ -1,0 +1,63 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+
+<pre>
+    Vue 插值过滤器。通过在插值尾部添加管道符号 " | " 可以对数据进行过滤。
+
+    通常用户格式化文本。如字母大小写、货币符号、千分位、时间格式等
+
+    例：显示当前时间。使用过滤器对其进行格式化
+
+    过滤器可以串联：{{date | formatDate | filterB}}
+    过滤器可以传参：{{date | formatDate(arg1, arg2)}}。接收参数时，第一个参数是数据本身，后面的参数依次是传入的参数
+
+</pre>
+
+<div id="app">
+    <!-- 显示当前时间。使用过滤器对其进行格式化 -->
+    {{date | formatDate}}
+</div>
+
+<script>
+    var padDate = function (value) {
+        return value < 10 ? '0' + value : value;
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            date: new Date()
+        },
+
+        //定义过滤器
+        filters: {
+            formatDate: function (value) {
+                var date = new Date(value);
+                var year = date.getFullYear();
+                var month = padDate(date.getMonth() + 1);
+                var day = padDate(date.getDate());
+                var hour = padDate(date.getHours());
+                var miniutes = padDate(date.getMinutes());
+                var seconds = padDate(date.getSeconds());
+
+                return year + '-' + month + '-' + day + ' ' + hour + ':' + miniutes + ':' + seconds;
+            }
+        },
+
+        //钩子函数。实例挂载后
+        mounted: function () {
+            var _this = this; //指向 Vue 实例
+            this.timer = setInterval(function () {
+                _this.date = new Date(); //每隔1秒，修改一次 date 的数据
+            }, 1000)
+        },
+
+        //钩子函数。实例销毁前
+        beforeDestroy: function () {
+            if (this.timer) {
+                clearInterval(this.timer);
+            }
+        }
+    });
+</script>

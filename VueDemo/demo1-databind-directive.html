@@ -1,0 +1,61 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<pre>
+Vue 的 指令。一般带有前缀 v- 
+    如： v-if、v-html、v-pre、v-bind、v-model等
+
+Vue 的语法糖
+    如：
+        v-bind  与  :       v-bind:src  相当于  :src
+        v-on    与  @       v-on:click  相当于  @click
+
+
+    ★ 一定注意的等号和冒号。。。    有好几次用错了。。。
+</pre>
+
+
+<div id="app">
+
+    <p v-html='message'></p>
+    <p v-if='isShow'>Show Message ？</p>
+    <p v-pre>{{message}}}</p>
+
+
+    <a v-bind:href='url'>跳转首页</a>
+    <img v-bind:src='imgUrl'>
+    <button v-on:click="btn_click">Click here</button>
+    <button v-on:click="isShow = !isShow">Or Click here</button>
+</div>
+
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue',
+            isShow: true,
+            url: './00index.html',
+            imgUrl: ''
+        },
+        methods: {
+            /*这里面函数的 this 是指向 Vue 实例本身的*/
+            btn_click: function () {
+                /*这里会发现一个奇怪的问题。 */
+                /*isShow 的值改变在 alert 的前面，但实际页面中确是先弹窗后隐藏 DOM 节点*/
+                /*这是因为 vue 监测数据变化时的队列缓存。具体可以参照 nextTick */
+                this.isShow = !this.isShow;
+                alert('onclick');
+                /*这里面的方法也可以相互调用，因为都是 vue 实例下的方法，所以使用 this 来调用*/
+                this.showMessageBox();
+            },
+
+            showMessageBox: function () {
+                alert('messageBox');
+            },
+        },
+        filters: {
+
+        },
+    })
+</script>

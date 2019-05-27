@@ -1,4 +1,7 @@
 <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+
 <pre>
 <xmp>
     在子组件内使用特殊的 <slot> 元素就可以为这个子组件开启一个 slot （插槽），
@@ -30,7 +33,7 @@
                             <slot name="footer">默认底部 name 为 footer</slot>\
                         </div>\
                     </div>',
-    });
+    })
 
     var app = new Vue({
         el: '#app',
