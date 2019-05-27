@@ -4,9 +4,15 @@ import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import User from "@/components/User";
 import VIP from "@/components/VIP";
+import UserProps from "../components/UserProps";
 
 //使用引入的包
 Vue.use(Router);
+
+/*定义视图命名路由*/
+const viewNamed = {template:'<div>默认视图</div>'};
+const viewNamedA = {template:'<div>视图A</div>'};
+const viewNamedB = {template:'<div>视图B</div>'};
 
 //定义路由
 export default new Router({
@@ -31,6 +37,24 @@ export default new Router({
           component: VIP,
         }
       ]
+    },
+
+    /*新增测试路由，编写三个相关常量作用页面显示*/
+    {
+      path:'/viewNamed',//http://localhost:8080/#/viewNamed
+      components:{
+        default:viewNamed,
+        a:viewNamedA,
+        b:viewNamedB,
+      }
+    },
+
+    /*新建一个路由用于路由解耦*/
+    {
+      path:'/UserProps/:id',//http://localhost:8080/#/UserProps/123
+      component:UserProps,
+      props:true,
     }
+
   ],
 })
