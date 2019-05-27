@@ -3,21 +3,33 @@
   <div>
     <span>用户页面。Hello {{ $route.params.id}}</span>
 
+    <hr>
+    <span>路由名称：{{$router.name}}</span>
+
     <p>路由跳转</p>
     <router-link :to="{name:'user', params:{id:'Meng'}}">Jump to router named User</router-link>
+
+    <button @click="goHome">Go Home</button>
+    <button @click="goBack">Go Back</button>
   </div>
 </template>
 
 <script>
-  import router from 'vue-router';
 
   export default {
-    name: "User"
+    name: "User",
+
+    methods:{
+      goBack:function () {
+        this.$router.go(-1);
+      },
+      goHome:function(){
+        this.$router.push('/')
+      }
+    }
+
   }
 
-  //router.go(1);
-  //router.push('home');
-  // router.push({path:'home'});
 </script>
 
 <style scoped>
