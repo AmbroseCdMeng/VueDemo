@@ -5,6 +5,12 @@
 Vue 的 指令。一般带有前缀 v- 
     如： v-if、v-html、v-pre、v-bind、v-model等
 
+    v-cloak
+        会在 Vue 实例结束编译时从绑定的 HTML 元素上移除，经常和 css 的 display:none 配合使用。
+        通常用来解决因初始化速度慢而导致的页面闪动
+    v-once
+        指定组件只渲染一次。首次渲染后，不再随着数据的变化而重新渲染。
+
 Vue 的语法糖
     如：
         v-bind  与  :       v-bind:src  相当于  :src

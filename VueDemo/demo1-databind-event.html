@@ -1,0 +1,38 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<pre>
+    事件绑定
+</pre>
+
+<div id="app">
+    <p>{{counter}}</p>
+    <button @click="handleAdd()"> + 1</button>
+    <button @click="handleAdd(10)"> + 10</button>
+
+    <hr>
+
+    <p>Vue 提供了一个特殊的变量 $event 用于访问原生 Dom 事件</p>
+    <a href="http://www.baidu.com" @click="handleClick('禁止打开', $event)">Click Here</a>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods: {
+            handleAdd: function (count) {
+                debugger;
+                count = count || 1;
+                this.counter += count;
+            },
+
+            handleClick: function (message, event) {
+                event.preventDefault();
+                window.alert(message);
+            }
+        },
+    })
+</script>

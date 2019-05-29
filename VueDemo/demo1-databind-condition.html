@@ -1,0 +1,57 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<div id="app">
+    <button @click="addNum">Status + 1</button>
+    <p>{{status}}</p>
+
+    <p v-if="status === 1"> Status 为 1 时显示本行</p>
+    <p v-else-if="status === 2">Stauts 不为 1 但为 2 时显示本行</p>
+    <p v-else>否则显示本行</p>
+
+    <hr>
+    <p>Vue 在渲染元素时，出于效率考虑，会尽可能的复用已有的元素而非重新渲染</p>
+    <p>如下例，定义了两个 template 中各有一个 input，但是输入内容后，点击切换，发现输入的内容并未改变，仅仅是 label 和 placeholder 发生了改变</p>
+    <p>这就说明 input 被 Vue 复用了</p>
+    <p>如果不需要这种复用，可以给 input 绑定一个 key 值。 key 值必须唯一，当绑定了不同的 key 值，Vue 就不会复用</p>
+
+    <template v-if="type==='name'">
+        <label>用户名：</label>
+        <input type="text" placeholder="请输入用户名" key="name">
+    </template>
+    <template v-else>
+        <label>邮箱：</label>
+        <input type="text" placeholder="请输入邮箱" key="email">
+    </template>
+    <button @click="handleToggleClick">切换输入类型</button>
+
+    <hr>
+    <p>还有一个 v-show 效果和 v-if 差不多。但是 v-show 是将元素的 display 属性修改为隐藏，而 v-if 是根据条件适当的销毁和重建元素。</p>
+    <p>频繁的改变条件时，推荐 v-show 。因为 v-if 如果频繁的重建销毁，开销比较大</p>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            status: 1,
+
+            type: 'name',
+        },
+        methods: {
+            addNum: function () {
+                this.status++;
+            },
+
+            handleToggleClick: function () {
+                this.type = this.type === 'name' ? 'email' : 'name';
+            }
+        },
+        filters: {
+
+        },
+        computed: {
+
+        },
+    })
+</script>

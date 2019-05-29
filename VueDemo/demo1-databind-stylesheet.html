@@ -1,0 +1,70 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<style>
+    div {
+        width: 80px;
+        height: 80px;
+    }
+
+    .active {
+        background-color: #8B64FF;
+        border: #8B64FF 1px solid;
+        width: 70px;
+        height: 10px;
+    }
+
+    .error {
+        text-align: center;
+        color: brown;
+        border: #FCAA00 1px solid;
+        border-radius: 50%;
+    }
+
+    .cssName {
+        background-color: #F9A100;
+        border: #FCAA00 1px solid;
+        border-radius: 50%;
+    }
+</style>
+<div style="width:1000px;height: 800px;" id="app">
+    <a :href="url">https://www.github.com</a>
+    <img :src="imgUrl">
+    <!-- class 可以绑定一个计算属性、变量、或者方法 -->
+    <div :class="cssName">测试DIV</div>
+    <!-- class 可以绑定一组数据，应用多个 class ，每组数据 包含 class 名称，是否显示 -->
+    <div :class="{'active':isActive, 'error':isError}">第二个DIV</div>
+    <!-- class 可以绑定一个数组，同时应用多个 class -->
+    <div :class="[active, error]"></div>
+
+    <hr>
+
+    <!-- style 绑定 -->
+    <div :style="{'color':color, 'fontSize':fontSize+'px'}">一段话</div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            url: 'https://www.github.com',
+            imgUrl: 'https://www.github.com/pictrue.png',
+
+            isActive: true,
+            isError: true,
+            cssName: 'cssName',
+
+            color: '#147',
+            fontSize: 22,
+        },
+        methods: {
+
+        },
+        computed: {
+
+        },
+        filters: {
+
+        },
+    });
+</script>

@@ -1,0 +1,77 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<pre>
+    数组是双向绑定：修改数组，渲染结果会立即更新
+        push()
+        pop()
+        shift()
+        unshift()
+        splice()
+        sort()
+        reverse()
+
+    ---------------------------------------------------------
+    以上方法会改变原有数组，导致渲染结果更新。
+    有几个方法不会改变原有数组
+        filter()
+        concat()
+        slice()
+
+    **********************************************************
+    Vue 在监测数组变化时，并不是全部渲染整个列表，而是最大化的复用旧的 DOM 元素
+
+    需要注意的是：
+        以下两种情况数组变动时，Vue 是监测不到的
+        1、通过索引直接修改项。app.books[3] = {name: 'VueJs'}
+        2、修改数组长度。app.books.length = 2
+
+        如果需要监测。可以使用 set 方法
+            Vue.set(app.books, 3, {
+                name : 'VueJs'
+            })
+            或
+            this.$set(app.books, 3, {
+                name : 'VueJs'
+            })
+
+            app.book.splice(3, 1, {
+                name:'...'
+            })
+</pre>
+
+<div id="app">
+    <ul>
+        <li v-for="(item , index) in list">
+            {{ index }} - {{ item.formType }} -- {{ item.type }} -- {{ item.value }}
+        </li>
+    </ul>
+
+    <hr />
+
+    <span v-for="i in 50">{{ i }} </span>
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: [{
+                    formType: "DFM",
+                    type: "计划",
+                    value: 1228
+                },
+                {
+                    formType: "DFM",
+                    type: "实际",
+                    value: 0215
+                },
+                {
+                    formType: "DFM",
+                    type: "客户回复",
+                    value: 1024
+                }
+            ]
+        }
+    });
+</script>

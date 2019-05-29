@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js">
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/CommonFooter.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/MovieIndexHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/MoviesList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/RobotTest.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/Computed.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/router/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -57,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+            <state relative-caret-position="371">
+              <caret line="116" column="24" lean-forward="true" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
               <folding>
                 <element signature="n#div#4;n#div#0;n#template#0;n#!!top" />
                 <element signature="e#865#927#0" expanded="true" />
@@ -196,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-325" />
     <option name="y" value="60" />
     <option name="width" value="1400" />
@@ -325,7 +311,7 @@
       <workItem from="1558778769050" duration="18753000" />
       <workItem from="1558834492722" duration="20761000" />
       <workItem from="1558954561175" duration="13331000" />
-      <workItem from="1559042348235" duration="8027000" />
+      <workItem from="1559042348235" duration="8232000" />
     </task>
     <task id="LOCAL-00001" summary="init vue project">
       <created>1558445791340</created>
@@ -422,7 +408,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94420000" />
+    <option name="totallyTimeSpent" value="94625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -834,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+        <state relative-caret-position="371">
+          <caret line="116" column="24" lean-forward="true" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
           <folding>
             <element signature="n#div#4;n#div#0;n#template#0;n#!!top" />
             <element signature="e#865#927#0" expanded="true" />
