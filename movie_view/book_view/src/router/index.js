@@ -15,6 +15,12 @@ import Directives from "../pages/Directives";
 
 import RobotTest from '@/components/RobotTest';
 
+import MovieList from '../pages/moviesList';
+import MovieDetail from "../pages/movieDetail";
+import LoginPage from '../pages/loginPage';
+import RegisterPage from '../pages/registerPage';
+import FindPassword from '../pages/findPassword';
+
 Vue.use(Router);
 Vue.use(VueResource);
 Vue.use(vueResource);
@@ -59,6 +65,32 @@ const routes = [
   {
     path:'/RobotTest',
     component:RobotTest,
+  },
+
+  /*电影列表页*/
+  {
+    path:'/movieList',
+    component:MovieList
+  },
+  /*详情页*/
+  {
+    path:'/movieDetail',
+    component:MovieDetail
+  },
+  /*登录页*/
+  {
+    path:'/loginPage',
+    component:LoginPage,
+  },
+  /*注册页*/
+  {
+    path:'/register',
+    component:RegisterPage
+  },
+  /*找回密码*/
+  {
+    path:'/findPassword',
+    component:FindPassword
   },
 ];
 
