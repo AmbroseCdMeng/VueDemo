@@ -2,6 +2,10 @@
 <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
 
 <pre>
+    ★ Vue 中的 for 不仅可以循环数组，还可以循环对象。
+        循环数组时，两个参数分别是 当前项、索引
+        循环对象时，三个参数分别是 值、键、索引
+
     数组是双向绑定：修改数组，渲染结果会立即更新
         push()
         pop()
@@ -42,14 +46,23 @@
 
 <div id="app">
     <ul>
-        <li v-for="(item , index) in list">
+        <li v-for="(item , index) in list" :key="item.id">
             {{ index }} - {{ item.formType }} -- {{ item.type }} -- {{ item.value }}
+        </li>
+    </ul>
+    <hr />
+
+    <span v-for="i in 50">{{ i }} </span>
+
+    <hr>
+
+    <ul>
+        <li v-for="(value, key , index) in obj">
+            {{ index }} - {{ key }} -- {{ value }}
         </li>
     </ul>
 
     <hr />
-
-    <span v-for="i in 50">{{ i }} </span>
 </div>
 
 <script>
@@ -71,7 +84,12 @@
                     type: "客户回复",
                     value: 1024
                 }
-            ]
+            ],
+            obj:{
+                formType:'DFM',
+                type:'客户回复',
+                value:1024
+            }
         }
     });
 </script>
