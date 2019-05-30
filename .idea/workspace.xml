@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/router/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -130,8 +115,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            <state relative-caret-position="224">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#491#553#0" expanded="true" />
               </folding>
@@ -354,7 +339,7 @@
       <workItem from="1558834492722" duration="20761000" />
       <workItem from="1558954561175" duration="13331000" />
       <workItem from="1559042348235" duration="8232000" />
-      <workItem from="1559135123095" duration="5198000" />
+      <workItem from="1559135123095" duration="5284000" />
     </task>
     <task id="LOCAL-00001" summary="init vue project">
       <created>1558445791340</created>
@@ -451,7 +436,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99823000" />
+    <option name="totallyTimeSpent" value="99909000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -927,8 +912,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        <state relative-caret-position="224">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#491#553#0" expanded="true" />
           </folding>

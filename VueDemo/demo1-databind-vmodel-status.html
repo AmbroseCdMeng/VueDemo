@@ -1,0 +1,98 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+<pre>
+    v-model 的使用。
+    用户表单类元素上状态的双向绑定。
+
+</pre>
+
+<div id="app">
+    <h4>文本输入框</h4>
+    <pre>
+        v-model 的双向绑定效果 与 input 事件最大的不同点在于：
+        input 事件是实时触发更新的
+        v-model 其实是一个特殊的语法糖，它会在不同的表单上智能处理。
+        比如，在中文输入法时，没有选定汉字之前，v-model 是不会更新数据的，敲下汉字时才会更新
+        而 input 是实时更新的
+    </pre>
+    <div>
+        <label for="">input 事件</label>
+        <input type="text" @input="updatamessage">
+        <label>输入的内容：{{input_message}}</label>
+        <br>
+        <label for="">v-model 双向绑定</label>
+        <input type="text" v-model="vmodel_message" placeholder="请输入...">
+        <label>输入的内容：{{vmodel_message}}</label>
+    </div>
+    <hr>
+    <h4>单选按钮</h4>
+    <pre>
+        单选按钮在单独使用时不需要 v-model，直接使用 v-bind 或者 : 绑定一个 bool 值，为 true 选中，false 不选中。
+        如果需要组合按钮来实现互斥效果，就可以配合 v-model 使用
+    </pre>
+    <div>
+        <p>{{picked}}</p>
+        <input type="radio" v-model="picked" value="HTML" id="html">
+        <label for="html">HTML</label>
+        <br>
+        <input type="radio" v-model="picked" value="JavaScript" id="javascript">
+        <label for="javascript">JavaScript</label>
+        <br>
+        <input type="radio" v-model="picked" value="JQuery" id="jquery">
+        <label for="jquery">JQuery</label>
+        <br>
+        <input type="radio" v-model="picked" value="Vue" id="vue">
+        <label for="vue">Vue</label>
+    </div>
+    <hr>
+    <h4>复选框</h4>
+    <pre>
+        复选框不论是单独使用还是组合使用，都需要用 v-model 绑定。
+    </pre>
+    <div>
+        <p>选择状态: {{checked}}</p>
+        <input type="checkbox" v-model="checked" id="html" value="HTML">
+        <label for="html">HTML</label>
+        <input type="checkbox" v-model="checked" id="javascript" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+        <input type="checkbox" v-model="checked" id="jquery" value="JQuery">
+        <label for="jquery">JQuery</label>
+        <input type="checkbox" v-model="checked" id="vue" value="Vue">
+        <label for="vue">Vue</label>
+    </div>
+    <hr>
+    <h4>下拉列表</h4>
+    <pre>
+        单选和复选框中。匹配的都是 value 值。
+        在下拉列表中，option 是备选项，如果含有 value 属性，会优先匹配 value 属性，如果没有，会匹配 option 中的 text
+    </pre>
+    <div>
+        <p>选中的值： {{selected}}</p>
+        <select name="select" id="select" v-model="selected" multiple>
+            <option value="html">HTML</option>
+            <option>JavaScript</option>
+            <option value="css">CSS</option>
+            <option>JQuery</option>
+            <option value="vue">Vue</option>
+        </select>
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            input_message: '',
+            vmodel_message: '',
+
+            picked: 'JavaScript', //这里是value
+            checked: ['HTML', 'Vue'], //这里是value
+            selected: [],
+        },
+        methods: {
+            updatamessage: function (e) {
+                this.input_message = e.target.value;
+            }
+        },
+    })
+</script>

@@ -14,6 +14,30 @@
 
     <p>Vue 提供了一个特殊的变量 $event 用于访问原生 Dom 事件</p>
     <a href="http://www.baidu.com" @click="handleClick('禁止打开', $event)">Click Here</a>
+
+    <hr>
+
+    <p>Vue 提供了事件修饰符来实现上例中类似的功能。在 @ 绑定的事件后加上 .后缀名 即可</p>
+    <li>.prevent 提交页面不再重新加载</li>
+    <li>.stop 阻止事件冒泡</li>
+    <li>.capture 元素监听器。当元素冒泡时，先触发带有该修饰符的元素。多个时，由内向外触发。修饰符触发完后触发本身，然后继续冒泡触发其它事件</li>
+    <li>.self 元素监听器。该修饰符会监听当前触发的事件是否直接作用在该元素上，如果不是，在冒泡时将会跳过该元素</li>
+    <li>.once 事件只触发一次。</li>
+    <p>按键修饰符</p>
+    <li>.keyCode 这里的 keyCode 是按键所对应的编码。如：enter:13；backspace：8。j具体可参照 keycode 对照表</li>
+    <li>另外，keycode 也可以自行指定。 Vue.config.keyCodes.enter = 100 这样全局定义后，就可以使用 .100 来控制enter键</li>
+    <li>Vue 还提供了一些快捷名称：
+        <ul>.enter </ul>
+        <ul>.tab</ul>
+        <ul>.delete 捕获 delete 和 backspace</ul>
+        <ul>.space </ul>
+        <ul>.esc</ul>
+        <ul>.ctrl</ul>
+        <ul>.alt</ul>
+        <ul>.shift</ul>
+        <ul>.meta</ul>
+    </li>
+    <li>多个修饰符之间可以串联调用</li>
 </div>
 
 <script>

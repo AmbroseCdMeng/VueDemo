@@ -1,0 +1,88 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<pre>
+    组件。此乃 Vue 的核心设计。
+
+    组件的注册方式有两种：
+        1、全局注册
+            全局注册后所有的 Vue 实例都可以使用
+            Vue.component('组件名', {
+                name:'',
+                template:''
+            })
+
+        2、局部注册
+            局部注册后只有当前 Vue 实例可以使用
+            new Vue({
+                el:'',
+                components:{
+                    组件内容
+                },
+            })
+        
+    组件的命名建议使用 小写字母 + 减号 分割的形式。
+
+    父实例中如果也想使用组件，就必须在实例创建前注册组件。
+
+    组件的 template 必须被一个元素包含。否则是无法显示的。
+
+    组件中也可以继续使用 components 选项注册组件，形成嵌套组件。
+
+    ★有时候，vue 组件模板会受到一些限制，比如 table 标签中只允许指定元素存在，使用自定义的标签是无效的。
+    这种情况下，可以使用 is 属性来挂载组件
+
+    ★Vue 组件中也可以像 Vue 实例一样使用 data、methods 等选项。
+    但是不同的一点是，在使用 data 时，data 必须是函数，然后将数据 return 出去。
+    data(){
+        return {
+            name:'',
+        }
+    }
+    或者
+    data:function(){
+        return {
+            name:''
+        }
+    }
+</pre>
+
+<div id="app">
+    <div>
+        <my-component1></my-component1>
+        <my-component1></my-component1>
+        <my-component1></my-component1>
+    </div>
+    <hr>
+    <div>
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+        <my-component2></my-component2>
+    </div>
+</div>
+
+<script>
+    var data = {
+        counter: 0,
+    }
+    Vue.component('my-component1', {
+        template: '<button @click="counter++">{{counter}}</button>',
+        data: function () {
+            return data;
+        }
+    });
+
+
+    Vue.component('my-component2', {
+        template: '<button @click="counter++">{{counter}}</button>',
+        data: function () {
+            return {
+                counter: 0,
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>

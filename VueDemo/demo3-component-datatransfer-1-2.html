@@ -2,6 +2,101 @@
 <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
 
 <pre>
+     父组件向子组件传递数据
+     正向的传递数据和参数 通过 props 实现
+        在组件中，使用 props 声明需要从父级接收的数据，props 的值可以是两种，一种时字符串，一种是对象
 
-        父组件向子组件传递数据
+        数组类型的写法：
+            props: ['color', 'width'],
+        对象类型的写法（推荐 -- 可以进行数据验证）：
+            props: {
+                prop1 : Number,
+                prop2 : [String, Number, Function, Object],
+                prop3 : Boolean, //默认 true
+                prop4 : {
+                    type : Boolean,
+                    default : true,
+                    required : true
+                },
+                prop5 : {
+                    type : Array,//类型是数组或对象时，默认值必须是函数的返回值
+                    default:function(){
+                        return [];
+                    }
+                },
+                prop6 : {
+                    //自定义验证规则，可以使用正则，type 也可以使用 instanceof 自行构造验证规则
+                    validator : function(data){
+                        return value > 0;
+                    }
+                }
+            }
+
 </pre>
+
+<div id="app">
+    <my-component message="来自父组件的数据"></my-component>
+
+    <div>
+        <p>
+            props 中声明的数据与组件 data 函数中 return 的数据主要区别就是 props 的数据来自父级，而 data 中的数据是组件本身的，作用域是组件本身
+        </p>
+        <b style="color: red">
+            我滴个天哪，一定要注意这个命名，写错了取不到数据噻
+            <br>
+            由于 HTML 特性不区分大小写，当使用 DOM 模板时，驼峰式命名的 props 名称要转为 短横线分隔命名的形式
+            <br>
+
+            父组件中写成驼峰式命名 -- 子组件取不到数据
+            子组件写成短杠命名 -- 取到的是 NAN
+        </b>
+    </div>
+    <br>
+    <input type="text" v-model="parentMessage">
+    <my-component1 :warning-text="parentMessage"></my-component1>
+
+    <br>
+    <my-component2 :color='color' :width='100'></my-component2>
+</div>
+
+<script>
+    Vue.component('my-component', {
+        props: ['message'],
+        template: '<div>{{message}}</div>',
+        data: function () {
+            return {};
+        }
+    });
+
+
+    Vue.component('my-component1', {
+        props: ['warningText'],
+        template: '<div style="color:red">{{warningText}}</div>',
+        data: function () {
+            return {};
+        }
+    })
+
+
+    Vue.component('my-component2', {
+        props: ['color', 'width'],
+        template: '<div :style="style"></div>',
+        computed: {
+            style: function () {
+                return {
+                    'background-color': this.color,
+                    'width': this.width + 'px',
+                    'height': '100px'
+                }
+            }
+        },
+    })
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            parentMessage: '123',
+            color: 'yellow'
+        }
+    })
+</script>
