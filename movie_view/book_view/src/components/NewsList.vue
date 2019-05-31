@@ -3,14 +3,26 @@
   <div>
     <li class="goods-list"></li>
     <div class="newsList">
-      <router-link :to="url" class="goods-list-link">title</router-link>
+      <router-link :to="{path:'/newDetail', query:{id: id}}" class="goods-list-link">
+        {{articleTitle}}
+        {{articleTimeShow}}
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: "NewsList"
+    name: "NewsList",
+    data(){
+      return {
+        articleTimeShow:'',
+      }
+    },
+    props:['id','articleTitle', 'articleTime'],
+    created() {
+      this.articleTimeShow = new Date(parseInt(this.articleTime)).toLocaleDateString().replace(/: \d{1, 2}$/, ' ');
+    }
   }
 </script>
 

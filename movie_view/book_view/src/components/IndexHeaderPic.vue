@@ -3,8 +3,8 @@
   <div class="headerPic">
     <div>
       <p class="imgTitle">{{recommendTitle}}</p>
-      <a href="#">
-        <img src="#" alt="" class="headerImg">
+      <a :href="recommendSrc">
+        <img class="headerImg" :src="recommendImg" alt="加载失败">
       </a>
     </div>
   </div>
@@ -12,7 +12,18 @@
 
 <script>
     export default {
-        name: "IndexHeaderPic"
+        name: "IndexHeaderPic",
+      props:{
+          recommendSrc:{
+            type:[String,Object],
+          },
+        recommendImg:{
+            type:String,
+        },
+        recommendTitle:{
+            type:String,
+        }
+      }
     }
 </script>
 

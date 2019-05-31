@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "ShowText",
+      name: "ShowText",
     data() {
       return {
         msg:'HelloVue',

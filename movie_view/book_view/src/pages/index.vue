@@ -14,9 +14,11 @@
 
     <!--引入大图片组件-->
     <div class="contentPic">
-      <index-header-pic></index-header-pic>
+      <index-header-pic v-for="item in headerItems" :key="item.id"
+                        :recommendImg="item.recommendImg"
+                        :recommendSrc="item.recommendSrc"
+                        :recommendTitle="item.recommendTitle"></index-header-pic>
     </div>
-
 
     <!--列表区域-->
     <div class="contentMain">
@@ -24,7 +26,9 @@
       <div>
         <div class="contentLeft">
           <ul class="cont-ul">
-            <movies-list></movies-list>
+            <movies-list v-for="item in movieItems" :key="item.id" :id="item._id"
+                         :movieName="item.movieName"
+                         :movieTime="item.movieTime"></movies-list>
           </ul>
         </div>
       </div>
@@ -33,7 +37,9 @@
       <div>
         <div class="contentRight">
           <ul class="cont-ul">
-            <news-list></news-list>
+            <news-list v-for="item in newsItems" :key="item.id" :id="item._id"
+                       :articleTitle="item.articleTitle"
+                       :articleTime="item.articleTime"></news-list>
           </ul>
         </div>
       </div>
@@ -58,7 +64,11 @@
 
     /*数据*/
     data() {
-      return {}
+      return {
+        headerItems: [],
+        newsItems: [],
+        movieItems: [],
+      }
     },
 
     /*引用组件*/
@@ -74,6 +84,21 @@
     /*实例创建时加载数据*/
     created() {
       //获取主页数据
+      //1、主页推荐
+      this.$http.get('http://localhost:3000/showIndex').then((data) => {
+        console.log(data.body.data);
+        this.headerItems = data.body.data;
+      });
+      //2、获取新闻列表
+      this.$http.get('http://localhost:3000/showArticle').then((data) => {
+        console.log(data.body.data);
+        this.newsItems = data.body.data;
+      });
+      //3、获取电影列表
+      this.$http.get('http://localhost:3000/showRanking').then((data) => {
+        console.log(data.body.data);
+        this.movieItems = data.body.data;
+      });
     }
   }
 </script>
@@ -94,18 +119,18 @@
     margin-left: -10px;
   }
 
-  .contentPic{
+  .contentPic {
     padding-top: 5px;
   }
 
-  .contentLeft{
+  .contentLeft {
     width: 60%;
     float: left;
     margin-left: 5px;
     border-top: 1px solid #000000;
   }
 
-  .contentRight{
+  .contentRight {
     width: 38%;
     margin-left: 1%;
     margin-top: 5px;
@@ -113,13 +138,13 @@
     border-top: 1px solid #000000;
   }
 
-  .cont-ul{
+  .cont-ul {
     padding-top: 0.5rem;
     background-color: #ffffff;
   }
 
-  .cont-ul::after{
-    content:'';
+  .cont-ul::after {
+    content: '';
     display: block;
     clear: both;
     width: 0;
