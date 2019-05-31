@@ -2,9 +2,10 @@
 <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
 
 <pre>
-    ★ Vue 中的 for 不仅可以循环数组，还可以循环对象。
-        循环数组时，两个参数分别是 当前项、索引
-        循环对象时，三个参数分别是 值、键、索引
+    ☆ Vue 中的 for 不仅可以循环数组，还可以循环对象、数字
+        循环数组时，两个参数分别是：当前项，索引
+        循环对象时，三个参数分别是：值，键，索引
+        循环数字时，两个参数分别是：当前数，索引
 
     数组是双向绑定：修改数组，渲染结果会立即更新
         push()
@@ -51,18 +52,17 @@
         </li>
     </ul>
     <hr />
-
-    <span v-for="i in 50">{{ i }} </span>
-
-    <hr>
-
     <ul>
-        <li v-for="(value, key , index) in obj">
+        <li v-for="(value, key, index) in obj" :key="key.id">
             {{ index }} - {{ key }} -- {{ value }}
         </li>
     </ul>
-
     <hr />
+    <span v-for="i in 50">{{ i }} </span>
+    <hr>
+    <span v-for="i in even(numbers)">{{ i }} </span>
+    <hr>
+    <span v-for="i in evenNum">{{i}} </span>
 </div>
 
 <script>
@@ -85,11 +85,26 @@
                     value: 1024
                 }
             ],
-            obj:{
-                formType:'DFM',
-                type:'客户回复',
-                value:1024
+            obj: {
+                username: "cdmeng",
+                useremail: "mcd.951026@foxmail.com",
+                usertel: '188****1482',
+            },
+            numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        },
+        methods: {
+            even: function (numbers) {
+                return numbers.filter(function (num) {
+                    return num % 2 === 0;
+                })
             }
-        }
+        },
+        computed: {
+            evenNum: function () {
+                return this.numbers.filter(function (num) {
+                    return num % 2 === 0;
+                })
+            }
+        },
     });
 </script>

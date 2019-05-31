@@ -3,14 +3,22 @@
 
 <pre>
 
-子组件向父组件传递数据
+    子组件向父组件传递数据
 
-使用自定义事件。
+    其模式类似于"观察者模式"。
+        子组件使用 $emit() 来触发事件，父组件使用 $on() 来监听子组件事件
+
+    
+        如下例：
+            子组件 click 触发事件 (handleincrease & handleReduce)，
+            子组件的内部数据 counter 的值改变，
+            触发父组件监听自定义事件 (increase & reduce)
+            监听事件触发后调用方法 (handleGetTotal) 并以参数形式传递 total 的值
 
 </pre>
 <div id="app">
     <p>总数： {{total}} </p>
-    <!-- increase, reduce 组件之间的自定义事件 -->
+    <!-- increase, reduce 组件之间的自定义事件进行监听 -->
     <my-component @increase="handleGetTotal" @reduce="handleGetTotal">
     </my-component>
 </div>
