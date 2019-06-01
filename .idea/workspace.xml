@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed8cb13f-3422-4157-88e6-c77acce2c2d6" name="Default Changelist" comment="common js">
-      <change beforePath="$PROJECT_DIR$/movie_view/book_service/models/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_service/models/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/MoviesList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/MoviesList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/ShowText.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/ShowText.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,40 +26,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-              <folding>
-                <element signature="e#865#927#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/article.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/MoviesList.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="20" column="100" selection-start-line="20" selection-start-column="100" selection-end-line="20" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="23" column="115" selection-start-line="23" selection-start-column="115" selection-end-line="23" selection-end-column="115" />
+            <state relative-caret-position="683">
+              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -66,47 +37,93 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/ShowText.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
+            <state relative-caret-position="168">
               <caret line="6" column="21" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="683">
-              <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
               <folding>
-                <element signature="e#754#816#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="504">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/MovieIndexHeader.vue">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            <state relative-caret-position="431">
+              <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            <state relative-caret-position="431">
+              <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
+              <folding>
+                <element signature="n#style#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#1152#1214#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/JSExpression.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/ShowHtml.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -160,17 +177,7 @@
         <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/Computed.vue" />
         <option value="$PROJECT_DIR$/movie_view/book_view/src/components/CommonFooter.vue" />
         <option value="$PROJECT_DIR$/movie_view/book_view/src/components/MovieIndexHeader.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue" />
         <option value="$PROJECT_DIR$/movie_view/book_view/src/router/index.js" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue" />
-        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue" />
         <option value="$PROJECT_DIR$/VueDemo/demo1-databind-for.html" />
         <option value="$PROJECT_DIR$/VueDemo/demo3-component-zlable/index.html" />
         <option value="$PROJECT_DIR$/VueDemo/demo3-component-zlable/pane.js" />
@@ -186,6 +193,16 @@
         <option value="$PROJECT_DIR$/movie_view/book_view/.editorconfig" />
         <option value="$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue" />
         <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue" />
+        <option value="$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue" />
       </list>
     </option>
   </component>
@@ -267,6 +284,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="router" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="303.Vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="303.Vue" type="462c0819:PsiDirectoryNode" />
+              <item name="movie_view" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -343,7 +366,8 @@
       <workItem from="1559042348235" duration="8232000" />
       <workItem from="1559135123095" duration="5284000" />
       <workItem from="1559217511463" duration="1606000" />
-      <workItem from="1559299026755" duration="7605000" />
+      <workItem from="1559299026755" duration="7800000" />
+      <workItem from="1559349194689" duration="5543000" />
     </task>
     <task id="LOCAL-00001" summary="init vue project">
       <created>1558445791340</created>
@@ -440,7 +464,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109120000" />
+    <option name="totallyTimeSpent" value="114858000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -569,13 +593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/ShowHtml.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/Directives.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -600,13 +617,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/vue/types/index.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/JSExpression.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/Computed.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -628,53 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-          <folding>
-            <element signature="e#379#441#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2772">
@@ -686,23 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1960">
           <caret line="70" column="26" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2240">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,13 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="683">
           <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/src/mongostart.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -760,33 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_service/common/db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -801,13 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="22" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -842,51 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/ShowText.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/MovieIndexHeader.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-          <folding>
-            <element signature="e#865#927#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/article.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="23" column="115" selection-start-line="23" selection-start-column="115" selection-end-line="23" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/.editorconfig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -894,10 +754,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue">
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="1148">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/article.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -908,13 +775,171 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/UserMessage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/MovieIndexHeader.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/IndexHeaderPic.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/src/mongostart.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/moviesList.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+        <state relative-caret-position="95">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/movieDetail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
           <folding>
-            <element signature="e#754#816#0" expanded="true" />
+            <element signature="e#601#663#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/Comment.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/NewsList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="23" column="115" selection-start-line="23" selection-start-column="115" selection-end-line="23" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/NewsDetail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#428#490#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/loginPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#2;n#div#2;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/registerPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/findPassword.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_service/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/userInfo.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#1152#1214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/ShowHtml.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/JSExpression.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/EmailList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/ShowText.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/components/SendTalkBox.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_view/book_view/src/pages/sendEmail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
         </state>
       </provider>
     </entry>

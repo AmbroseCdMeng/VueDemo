@@ -1,20 +1,28 @@
 <template>
-  <!--发送站内邮件组件-->
+    <!--发送站内邮件组件-->
     <div class="message">
-      <div>标题</div>
-      <div>来源用户</div>
-      <div>内容</div>
+        <div>{{title}}</div>
+        <div>{{fromUser}}</div>
+        <div>{{context}}</div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "EmailList"
+        name: "EmailList",
+        data() {
+            return {
+                title: '',
+                fromUser: '',
+                context: '',
+            }
+        },
+        props:['title', 'fromUser', 'context'],
     }
 </script>
 
 <style scoped>
-.message{
-  border: 1px solid;
-}
+    .message {
+        border: 1px solid;
+    }
 </style>
