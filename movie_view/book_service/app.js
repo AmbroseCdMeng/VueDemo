@@ -10,6 +10,19 @@ var admin = require('./routes/admin');
 
 var app = express();
 
+/*修改服务端代码，进行全路由配置，允许跨域请求*/
+app.all('*', function(req, res, next){
+  res.header('Access-Control-Allow-Origin',  '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, yourHeaderFeild');
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS'){
+    res.send(200);
+  }
+  else{
+    next();
+  }
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -38,19 +51,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-/*修改服务端代码，进行全路由配置，允许跨域请求*/
-app.all('*', function(req, res, next){
-  res.header('Access-Control-Allow-Origin',  '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With, yourHeaderFeild');
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-  if (req.method === 'OPTIONS'){
-    res.send(200);
-  }
-  else{
-    next();
-  }
 });
 
 module.exports = app;
