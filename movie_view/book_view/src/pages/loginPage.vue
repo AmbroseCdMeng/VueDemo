@@ -1,21 +1,24 @@
 <template>
     <div>
-        <div>
-            <div>
-                <div class="box">
-                    <label for="">用户名：</label>
-                    <input v-model="username" type="text" placeholder="请输入用户名">
+        <div class="box">
+            <div style="width: 30%;padding-top: 10%">
+                <label for="">Login</label>
+                <div>
+                    <i-input type="text" v-model="username" placeholder="用户名">
+                        <Icon type="ios-person-outline" slot="prepend"></Icon>
+                    </i-input>
                 </div>
                 <div class="box">
-                    <label for="">密码：</label>
-                    <input v-model="password" type="password" placeholder="请输入密码">
-                </div>
-                <div class="box">
-                    <button @click="userLogin()">登录</button>
-                    <button style="margin-left: 10px" @click="userRegister()">注册</button>
-                    <button style="margin-left: 10px" @click="findBackPassword()">忘记密码</button>
+                    <i-input type="text" v-model="password" placeholder="密码">
+                        <Icon type="ios-locked                                                                                                                                                                                                                                                                                                                -outline" slot="prepend"></Icon>
+                    </i-input>
                 </div>
             </div>
+        </div>
+        <div class="box">
+            <i-button type="primary" @click="userLogin()">登录</i-button>
+            <i-button type="ghost" style="margin-left: 10px" @click="userRegister()">注册</i-button>
+            <i-button type="text" style="margin-left: 10px" @click="findBackPassword()">忘记密码</i-button>
         </div>
     </div>
 </template>
@@ -49,11 +52,11 @@
                     }
                 })
             },
-            userRegister:function(event){
-                this.$router.push({path:'register'});
+            userRegister: function (event) {
+                this.$router.push({path: 'register'});
             },
-            findBackPassword:function (event) {
-                this.$router.push({path:'findPassword'});
+            findBackPassword: function (event) {
+                this.$router.push({path: 'findPassword'});
             }
         }
     }
