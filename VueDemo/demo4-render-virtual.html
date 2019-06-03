@@ -1,0 +1,69 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<style>
+    .note,
+    #demo {
+        float: left;
+        width: 50%;
+    }
+
+    .note {
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+<div class="note">
+    <h3>Virtual DOM 虚拟节点</h3>
+    <p><b>VNode 对象</b></p>
+    <ul>
+        <li>tag : 当前节点的标签名</li>
+        <li>data : 当前节点的数据对象</li>
+        <li>children : 当前节点的子节点数组。子节点也是 VNode 类型</li>
+        <li>text : 当前节点文本。一般文本节点或注释节点会有</li>
+        <li>elm : 当前虚拟节点对应的真实DOM节点</li>
+        <li>ns : 节点的namespace</li>
+        <li>content : 编译作用域</li>
+        <li>funtionalContext : 函数化组件的作用域</li>
+        <li>key : 节点的 key 属性，用于作为节点的标识，有利于patch的优化</li>
+        <li>componentOptions : 创建组件实例时会用到的选项信息</li>
+        <li>child : 当前节点对应的组件实例</li>
+        <li>parent : 组件的占位节点</li>
+        <li>raw : 原始 html</li>
+        <li>isStatic : 静态节点的标识</li>
+        <li>isRootInsert : 是否作为根节点插入。被 transition 包裹的节点，该属性的值为 false</li>
+        <li>isComment : 是否是注释节点</li>
+        <li>isCloned : 是否是克隆节点</li>
+        <li>isOnce : 是否有 v-once 指令</li>
+    </ul>
+    <p><b>VNode 主要分五类</b></p>
+    <ul>
+        <li>TextVNode : 文本节点</li>
+        <li>ElementVNode : 普通元素节点</li>
+        <li>ComponentVNode : 组件节点</li>
+        <li>EmptyVNode : 没有内容的注释节点</li>
+        <li>CloneVNode : 克隆节点。可以是以上任意一种节点，唯一的区别是 isCloned 属性为 true</li>
+    </ul>
+    <h3>Render 函数</h3>
+</div>
+<div class="demo">
+    <h3>Render 函数示例 1</h3>
+    <div>
+        <anchor :level="2" title="特性">特性</anchor>
+    </div>
+    <div>
+        <h1 v-if="level === 1">
+            <a :href="'#'+title">
+                <slot></slot>
+            </a>
+        </h1>
+        <h2 v-if="level === 2">
+            <a :href="'@'"></a>
+        </h2>
+    </div>
+</div>
+
+
+<script>
+
+</script>

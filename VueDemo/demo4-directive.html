@@ -1,0 +1,326 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+
+<style>
+    .note,
+    #demo {
+        float: left;
+        width: 50%;
+    }
+
+    .note {
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+<div class="note">
+    <h3>自定义指令</h3>
+    <p><b>用法和组件相似，注册方法分全局注册和局部注册：</b></p>
+    <ul>
+        <li>
+            全局注册
+
+            <p>注册一个 v-focus 的指令，用于在文本元素初始化时自动获得焦点</p>
+            <pre>
+Vue.directive('focus', {
+    
+})
+            </pre>
+        </li>
+        <li>
+            局部注册
+
+            <p>同上</p>
+            <pre>
+    var app = new Vue({
+        al: '#app',
+        directives:{
+            
+        }
+    })
+                </pre>
+        </li>
+    </ul>
+    <p><b>自定义指令的选项是由几个钩子函数组成的</b></p>
+    <ul>
+        <li>
+            bind : 只调用一次。指令第一次绑定到元素的时候调用，用这个钩子函数可以定义一个在绑定时初始化的动作
+        </li>
+        <li>
+            inserted : 被绑定元素插入父节点时调用。父节点存在便会调用，不必存在于documente中
+        </li>
+        <li>
+            update : 被绑定元素所在模板更新时调用。与绑定值是否变化无关。通过比较更新前后的绑定值，可以忽略不必要的模板更新。
+        </li>
+        <li>
+            componentUpdated : 被绑定元素所在的模板完成一次更新周期时调用
+        </li>
+        <li>
+            unbind : 只调用一次。指令与元素解绑时调用。
+        </li>
+    </ul>
+    <p><b>钩子函数的参数</b></p>
+    <ul>
+        <li>
+            el : 指令所绑定的元素，可以用来直接操作 DOM
+        </li>
+        <li>
+            binding : 一个对象，包含以下属性
+            <ul>
+                <li>
+                    name : 指令名。不包含 v- 前缀
+                </li>
+                <li>
+                    value : 指令的绑定值。例 v-focus = '2'。value 就为 2
+                </li>
+                <li>
+                    oldValue : 指定绑定的前一个值。仅在 update 和 componentUpdated 钩子中可用
+                </li>
+                <li>
+                    expression : 绑定值得字符串形式
+                </li>
+                <li>
+                    args : 传给指令的参数。例 v-focus:foo。args 就为 foo
+                </li>
+                <li>
+                    modifiers : 包含修饰符的对象。例 v-my-directive.foo.bar。modifiers 就为 {foo:true, bar:true}
+                </li>
+            </ul>
+        </li>
+        <li>
+            vnode : Vue编译生成的虚拟节点。
+        </li>
+        <li>
+            oldValue : 上一个虚拟节点。仅在 update 和 componentUpdated 钩子中可用
+        </li>
+    </ul>
+</div>
+
+<div id="demo">
+    <h3>自定义指令示例 1</h3>
+    <div>
+        <label for=""> 输入框 1 </label>
+        <input type="text">
+    </div>
+    <div>
+        <label for=""> 输入框 4 </label>
+        <input type="text" v-focus>
+    </div>
+    <div>
+        <label for=""> 输入框 3 </label>
+        <input type="text">
+    </div>
+    <br>
+    <h3>自定义指令示例 2</h3>
+    <div v-test:msg.a.b="message">
+    </div>
+    <h3>自定义指令实例 1</h3>
+    <div v-cloak>
+        <div class="main" v-clickoutside="handleClose">
+            <button @click="show = !show">点击显示下拉菜单</button>
+            <div class="dropdown" v-show="show">
+                <p>我的收藏</p>
+                <p>个人中心</p>
+                <p>账号设置</p>
+                <p>退出登陆</p>
+            </div>
+        </div>
+    </div>
+    <h3>自定义指令实例 2</h3>
+    <div v-cloak>
+        <div v-time="timeNow"></div>
+        <div v-time="timeBefore"></div>
+    </div>
+</div>
+
+<script>
+    /*用于对时间指令的转换。对时间戳进行大小判断*/
+    var Time = {
+        //获取当前时间
+        getUnix: function () {
+            var date = new Date();
+            return date.getTime();
+        },
+        //获取当天 0 时 0 分 0 秒的时间戳
+        getTodayUnix: function () {
+            var date = new Date();
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
+            date.setMilliseconds(0);
+            return date.getTime();
+        },
+        //获取当年 1 月 1 日 0 时 0 分 0 秒的时间戳
+        getYearUnix: function () {
+            var date = new Date();
+            date.setMonth(1);
+            date.setDate(1);
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
+            date.setMilliseconds(0);
+            return date.getTime();
+        },
+        //获取标准时间 yyyy-mm-dd
+        getLastDate: function (time) {
+            var date = new Date(time);
+            var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+            var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+            return date.getFullYear() + '-' + month + '-' + day;
+        },
+        //转换时间
+        getFormatTime: function (timestamp) {
+            var now = this.getUnix();
+            var today = this.getTodayUnix();
+            var year = this.getYearUnix();
+            var timer = (now - timestamp) / 1000; //毫秒级转换为秒级
+            var tip = '';
+            if (timer <= 0) {
+                tip = '刚刚';
+            } else if (Math.floor(timer / 60) <= 0) {
+                tip = '刚刚';
+            } else if (timer < 3600) {
+                tip = Math.floor(timer / 60) + '分钟前';
+            } else if (timer >= 3600 && (timestamp - today > 0)) {
+                tip = Math.floor(timer / 3600) + '小时前';
+            } else if (timer / 86400 <= 31) {
+                tip = Math.ceil(timer / 86400) + '天前';
+            } else {
+                tip = this.getLastDate(timestamp);
+            }
+            return tip;
+        }
+    }
+</script>
+
+<script>
+    /*示例 1 -- 初始化时自动获取焦点*/
+    Vue.directive('focus', {
+        inserted(el) {
+            el.focus();
+        },
+    });
+
+    /*示例 2 -- 钩子函数的常见参数*/
+    Vue.directive('test', {
+        bind: function (el, binding, vnode) {
+            var keys = [];
+            for (var i in vnode) {
+                keys.push(i);
+            }
+            el.innerHTML =
+                'name: ' + binding.name + '<br>' +
+                'value: ' + binding.value + '<br>' +
+                'expression: ' + binding.expression + '<br>' +
+                'argument: ' + binding.arg + '<br>' +
+                'modifiers: ' + JSON.stringify(binding.modifiers) + '<br>' +
+                'vnode keys: ' + keys.join(', ');
+        }
+    });
+
+    /*实例 1 -- 点击区域外部可以自动关闭的下拉框*/
+    Vue.directive('clickoutside', {
+        /*初始化自定义指令时执行*/
+        bind: function (el, binding, vnode) {
+            /*定义内部方法*/
+            function documentHandler(e) {
+                /*如果自定义指令所在区域包含点击区域*/
+                if (el.contains(e.target)) {
+                    /*返回false*/
+                    return false;
+                }
+                /*如果自定义指令存在表达式。本例中，表达式即是点击外部区域要执行的函数*/
+                if (binding.expression) {
+                    //执行当前上下文中的指定函数
+                    binding.value(e);
+                }
+            }
+            /*引用自定义事件。vue2 中不允许使用 this.xxx 的形式在上下文中声明变量。引用目的是为了后面在 unbind 中对其进行移除*/
+            el.__vueClickOutSide__ = documentHandler;
+            /*将 documentHandler 作为句柄绑定在 document 的 click 事件中*/
+            document.addEventListener('click', documentHandler);
+        },
+        /*解除绑定*/
+        unbind: function (el, binding) {
+            /*移除 document 的 click 事件监听*/
+            document.removeEventListener('click', el.__vueClickOutSide__);
+            /*删除引用的自定义事件*/
+            delete el.__vueClickOutSide__;
+        }
+    });
+
+    /*实例 2 -- 时间转换指令*/
+    Vue.directive('time', {
+        bind: function (el, binding) {
+            el.innerHTML = Time.getFormatTime(binding.value);
+            el.__timeout__ = setInterval(function () {
+                el.innerHTML = Time.getFormatTime(binding.value);
+            }, 60000);
+        },
+        unbind: function (el) {
+            clearInterval(el.__timeout__);
+            delete el.__timeout__;
+        },
+    });
+
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            message: 'testText',
+
+            show: false,
+
+            timeNow: (new Date()).getTime(),
+            timeBefore: 1559531463550
+        },
+        methods: {
+            handleClose: function () {
+                this.show = false;
+            }
+        },
+    })
+</script>
+
+
+<style>
+    .main {
+        width: 125px;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        color: #FFF;
+        background-color: #39F;
+        border: 0;
+        padding: 6px;
+        text-align: center;
+        font-size: 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+    }
+
+    button:active {
+        top: 1px;
+        left: 1px;
+    }
+
+    .dropdown {
+        width: 100%;
+        height: 150px;
+        margin: 5px 0;
+        font-size: 12px;
+        background-color: #FFF;
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    }
+
+    .dropdown p {
+        /* display: inline-block; */
+        text-align: center;
+        padding: 6px;
+    }
+</style>
