@@ -1,0 +1,143 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+<style>
+    #note,
+    #demo {
+        float: left;
+        width: 50%;
+        max-height: 648px;
+        overflow: auto;
+    }
+
+    #note {
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+<div id="note">
+    <h3>Render 函数化组件</h3>
+    <p><b>函数化组件</b></p>
+    <p style="text-indent:2em; width: 100%">
+        Vue 提供了一个 functional 的布尔选项。设置为 true 时可以使组件无状态和实例，也就是没有 data 和 this 上下文。
+        这样用 render 函数返回虚拟节点可以更容易渲染，因为函数化组件只是一个函数，渲染的开销要小很多。
+    </p>
+    <p style="text-indent:2em; width: 100%">
+        使用函数化组件时，Render 提供了第二个参数 context 来提供临时上下文。组件需要的 data、props、slots、children、
+        parent 都是通过这个上下文来传递的。
+    </p>
+    <p style="text-indent:2em; width: 100%">
+        比如：this.level 写成 context.props.level。this.$slots.default 写成 context.children。
+    </p>
+    <p><b>函数化组件的应用场景</b></p>
+    <ul>
+        <li>程序化的在多个组件中选择一个</li>
+        <li>在将children、props、data传递给子组件之前操作它们</li>
+    </ul>
+</div>
+
+<div id="demo">
+    <h3>函数化组件实例 -- 根据数据不同选择不同的组件</h3>
+    <div id="ex1">
+        <smart-item :data="data"></smart-item>
+        <button @click="change('img')">切换为图片组件</button>
+        <button @click="change('video')">切换为视频组件</button>
+        <button @click="change('text')">切换为文本组件</button>
+    </div>
+</div>
+
+<script>
+    var ImgItem = {
+        props: ['data'],
+        render: function (createElement) {
+            return createElement('div', [
+                createElement('p', '图片组件'),
+                createElement('img', {
+                    attrs: {
+                        src: this.data.url,
+                    }
+                })
+            ]);
+        }
+    };
+
+    var VideoItem = {
+        props: ['data'],
+        render: function (createElement) {
+            return createElement('div', [
+                createElement('p', '视频组件'),
+                createElement('video', {
+                    attrs: {
+                        src: this.data.url,
+                        controls: 'controls',
+                        autoplay: 'autoplay',
+                    }
+                })
+            ])
+        }
+    };
+
+    var TextItem = {
+        props: ['data'],
+        render: function (createElement) {
+            return createElement('div', [
+                createElement('p', '文本组件'),
+                createElement('p', this.data.content),
+            ])
+        }
+    };
+
+    Vue.component('smart-item', {
+        //函数化组件
+        functional: true,
+        //render 函数的第二个参数 context 传递上下文
+        render: function (createElement, context) {
+            function getComponent() {
+                var data = context.props.data;
+                if (data.type === 'img') return ImgItem;
+                if (data.type === 'video') return VideoItem;
+                return TextItem;
+            }
+            return createElement(getComponent(), {
+                props: {
+                    data: context.props.data,
+                }
+            }, context.children)
+        },
+        props: {
+            data: {
+                type: Object,
+                required: true
+            }
+        }
+    });
+
+    var ex1 = new Vue({
+        el: '#ex1',
+        data: {
+            data: {}
+        },
+        methods: {
+            change: function (type) {
+                if (type === 'img') {
+                    this.data = {
+                        type: 'img',
+                        url: 'https://raw.githubusercontent.com/iview/iview/master/assets/logo.png'
+                    }
+                } else if (type === 'video') {
+                    this.data = {
+                        type: 'video',
+                        url: 'https://vjs.zencdn.net/v/oceans.mp4'
+                    }
+                } else if (type === 'text') {
+                    this.data = {
+                        type: 'text',
+                        content: '纯文本内容'
+                    }
+                }
+            },
+        },
+        created() {
+            this.change('img');
+        },
+    })
+</script>

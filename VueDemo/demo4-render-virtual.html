@@ -2,18 +2,20 @@
 <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
 
 <style>
-    .note,
+    #note,
     #demo {
         float: left;
         width: 50%;
+        max-height: 648px;
+        overflow: auto;
     }
 
-    .note {
+    #note {
         background-color: lightgoldenrodyellow;
     }
 </style>
 
-<div class="note">
+<div id="note">
     <h3>Virtual DOM 虚拟节点</h3>
     <p><b>VNode 对象</b></p>
     <ul>
@@ -45,25 +47,320 @@
         <li>CloneVNode : 克隆节点。可以是以上任意一种节点，唯一的区别是 isCloned 属性为 true</li>
     </ul>
     <h3>Render 函数</h3>
+    <p><b>使用</b></p>
+    <ul>
+        <li>Render 函数通过 createElement 参数来创建 VirtualDom。通常与 slot 结合使用。</li>
+    </ul>
+    <p><b>基本参数</b></p>
+    <ul>
+        createElement 构成了 Vue Virtual DOM 模板。它有三个参数：
+        <li>第一个参数：一个 HTML 标签或组件或函数。必选</li>
+        <li>第二个参数：数据对象。可选</li>
+        <li>第三个参数：子节点或子节点数组。可选</li>
+    </ul>
+    <p><b>约束</b></p>
+    <ul>
+        <li>所有的组件树中，如果 VNode 是组件或含有组件的 slot，那么 VNode 必须唯一</li>
+        <li> × 错误1：重复使用组件</li>
+        <li> × 错误2：重复使用含有组件的 slot</li>
+    </ul>
 </div>
-<div class="demo">
+<div id="demo">
     <h3>Render 函数示例 1</h3>
-    <div>
+    <div id="ex1">
         <anchor :level="2" title="特性">特性</anchor>
+
+        <!-- 换做 render 函数构造 -->
+
+        <!-- <script type="text/x-template" id="anchor">
+            <div>
+                <h1 v-if="level === 1">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h1>
+                <h2 v-if="level === 2">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h2>
+                <h3 v-if="level === 3">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h3>
+                <h4 v-if="level === 4">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h4>
+                <h5 v-if="level === 5">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h5>
+                <h6 v-if="level === 6">
+                    <a :href="'#' + title">
+                        <slot></slot>
+                    </a>
+                </h6>
+            </div>  
+        </script> -->
+
     </div>
+    <h3>createElement 的基本参数</h3>
     <div>
-        <h1 v-if="level === 1">
-            <a :href="'#'+title">
-                <slot></slot>
-            </a>
-        </h1>
-        <h2 v-if="level === 2">
-            <a :href="'@'"></a>
-        </h2>
+        <pre>
+    createElement(
+        //{String | Object | Function}      //第一个参数，三选一，必选
+        'h3',                                   //例如 h3 标签
+        //{Object}                          //第二个参数，对应属性的数据对象，可选
+        //{String, Array}                   //第三个参数，子节点或子节点数组，可选。
+        [                                       //例如
+            createElement('h5', 'Hello'),       //子节点也是 VNodes 类型，用法一致
+            createElement('myComponent', {
+                props:['message']
+            })
+        ]
+    )
+        </pre>
+    </div>
+    <h3>createElement 第二个参数 -- 数据对象的具体选项</h3>
+    <div>
+        <pre>
+    {
+        // 绑定属性  v-bind:class
+        class: {
+            foo: true,
+            bar: false,
+        },
+        // 绑定属性  v-bind:style
+        style: {
+            color: 'blue',
+        },
+        // html 属性
+        attrs:{
+            id: 'foo'
+        },
+        // 组件传值
+        props: {
+            level: ['2']
+        },
+        // DOM 属性
+        domProps: {
+            innerHTML: 'Hello',
+        },
+        // 自定义事件。不支持别名 enter 等，需要手动配置 keyCode
+        on: {
+            click: this.clickHandler
+        },
+        // 监听原生事件。仅用于组件，这里不是使用 vm.$emit 触发
+        nativeOn: {
+            click: this.nativeClickHandler
+        },
+        // 自定义指令
+        directives: [
+            {
+                name: 'my-directives',
+                value: '2',
+                expresssion: '1+1',
+                arg: 'foo',
+                modifiers: {
+                    bar: true
+                }
+            }
+        ],
+        // 作用域 slot。 用法： {name: props => VNode | Array<VNode>} 
+        scopedSlots: {
+            default: props => h2('span', props.text)
+        },
+        // slot 名称
+        slot: 'name-of-slot',
+        //其它属性
+        key: 'key',
+        ref: 'ref'
+    }        
+        </pre>
+    </div>
+    <h3>错误示例：重复使用组件</h3>
+    <div id="err1">
+        <ele></ele>
+    </div>
+    <h3>错误示例：重复使用含有组件的 slot</h3>
+    <div id="err2">
+        <ele>
+            <div>
+                <Child></Child>
+            </div>
+        </ele>
+    </div>
+    <h3>正确示例：重复渲染多个组件</h3>
+    <div id="ex2">
+        <ele></ele>
+    </div>
+    <h3>正确示例：重复渲染多个含有组件的 slot</h3>
+    <div id="ex3">
+        <ele>
+            <div>
+                <Child></Child>
+            </div>
+        </ele>
     </div>
 </div>
-
+<script>
+    Vue.component('anchor', {
+        template: '#anchor',
+        props: {
+            level: {
+                type: Number,
+                required: true,
+            },
+            title: {
+                type: String,
+                default: '',
+            }
+        },
+        /*这里render函数中的内容基本相当于上面屏蔽掉的 script 中的代码*/
+        render: function (createElement) {
+            return createElement(
+                'h' + this.level, [
+                    createElement('a', {
+                            domProps: {
+                                href: '#' + this.title
+                            },
+                        },
+                        this.$slots.default
+                    )
+                ]
+            )
+        }
+    });
+    var demo = new Vue({
+        el: "#ex1"
+    })
+</script>
 
 <script>
+    /*示例一 重复使用组件*/
+    //局部声明组件
+    var Child = {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    };
 
+    Vue.component('ele', {
+        render: function (createElement) {
+            //创建一个子节点，使用组件 Child
+            var ChildNode = createElement(Child);
+            return createElement('div', [
+                ChildNode,
+                ChildNode
+            ]);
+        }
+    });
+
+    var err1 = new Vue({
+        el: '#err1'
+    })
+</script>
+
+<script>
+    //示例二 重复使用含有组件的 slot
+    Vue.component('Child', {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    })
+
+    Vue.component('ele', {
+        render: function (createElement) {
+            return createElement('div', [
+                this.$slots.default,
+                this.$slots.default,
+            ])
+        }
+    })
+
+    var err2 = new Vue({
+        el: '#err2'
+    })
+</script>
+
+<script>
+    //示例三(示例一的推荐写法) 重复渲染多个组件  前两种写法有可能受到 VNode 约束
+    //循环 + 工厂函数渲染重复子组件
+
+    //局部声明组件
+    var Child = {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    };
+
+    Vue.component('ele', {
+        render: function (createElement) {
+            return createElement('div', Array.apply(null, {
+                length: 2
+            }).map(function () {
+                return createElement(Child);
+            }))
+        }
+    })
+
+    var ex2 = new Vue({
+        el: '#ex2'
+    })
+</script>
+
+<script>
+    //示例四(示例二的推荐写法) 重复渲染多个含有组件的 slot
+
+    //注册组件
+    Vue.component('Child', {
+        render: function (createElement) {
+            return createElement('p', 'text');
+        }
+    })
+
+    Vue.component('ele', {
+        render: function (createElement) {
+            //克隆 slot 节点的方法
+            function cloneVNode(vnode) {
+                //递归遍历所有子节点，并克隆
+                const clonedChildren = vnode.children && vnode.children.map(function (vnode) {
+                    return cloneVNode(vnode);
+                });
+                const cloned = createElement(
+                    vnode.tag,
+                    vnode.data,
+                    clonedChildren
+                );
+                cloned.text = vnode.text;
+                cloned.isComment = vnode.isComment;
+                cloned.componentOptions = vnode.componentOptions;
+                cloned.elm = vnode.elm;
+                cloned.context = vnode.context;
+                cloned.ns = vnode.ns;
+                cloned.isStatic = vnode.isStatic;
+                cloned.key = vnode.key;
+                return cloned;
+            }
+            const vNodes = this.$slots.default;
+            const clonedVNodes = vNodes.map(function (vnode) {
+                return cloneVNode(vnode);
+            });
+            console.log(vNodes);
+            console.log(clonedVNodes);
+
+            return createElement('div', [
+                vNodes,
+                clonedVNodes
+            ]);
+        }
+    })
+
+    var ex3 = new Vue({
+        el: '#ex3'
+    })
 </script>

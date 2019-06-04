@@ -1,0 +1,228 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+<style>
+    #note,
+    #demo {
+        float: left;
+        width: 50%;
+        max-height: 648px;
+        overflow: auto;
+    }
+
+    #note {
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+<div id="note">
+    <h3>Render 函数 createElement 用法进阶</h3>
+    <p><b>使用 JS 代替模板</b></p>
+    <ul>
+        Render 函数中无法使用 Vue 内置指令。 要实现其功能，就需要原生的 JS 。
+        <li>v-if 转换</li>
+        <li>v-for 转换</li>
+        <li>v-model 转换</li>
+        v-model 实际就是 prop:value 和 event:input 组合的特殊语法糖
+    </ul>
+    <p><b>Render 中按键修饰符 & 事件修饰符 的实现</b></p>
+    <ul>
+        <li>.enter </li>if(event.keyCode === 13)
+        <li>.ctrl </li>if(event.ctrlKey)
+        <li>.alt</li>if(event.altKey)
+        <li>.shift</li>if(event.shiftKey)
+        <li>.meta</li>if(event.metaKey)
+        <li>.stop</li>event.stopPropagation()
+        <li>.prevent</li>event.preventDefault()
+        <li>.self</li>if(event.target === event.currentTarget)
+    </ul>
+    <p><b>Render 中部分事件修饰符 的特殊实现</b></p>
+    <ul>部分事件修饰符，Vue 提供了特殊前缀可以直接写在 Render 的 on 配置中
+        <li>.capture</li>
+        <li>.once</li>
+    </ul>
+    <pre>
+        on:{
+        '!click': this.doThisInCapturingMode,// click.capture
+        '~keyup': this.doThisOnce,// keyup.once
+        '~!mouseover': doThisOnceInCapturingMode // mouseover.capture.once 或 mouseover.once.capture
+        }
+    </pre>
+</div>
+
+<div id="demo">
+    <h3>Render 中使用 JS 实现 v-if </h3>
+    <div id="ex1">
+        <my-comp01 :show="show"></my-comp01>
+        <button @click="show = !show">切换显示状态</button>
+    </div>
+    <h3>Render 中使用 JS 实现 v-for</h3>
+    <div id="ex2">
+        <my-comp02 :list="list"></my-comp02>
+    </div>
+    <h3>Render 中使用 JS 实现 v-model</h3>
+    <div id="ex3">
+        <my-comp03></my-comp03>
+    </div>
+    <h3>Render 中使用 JS 代替模板 实例 -- 聊天发送框</h3>
+    <div id="ex4">
+        <my-comp04></my-comp04>
+    </div>
+    <h3>Render 中使用 JS 代替模板 实例 -- slot 的使用</h3>
+    <div id="ex5">
+        <!-- 没有 slot 的时候显示默认值 -->
+        <my-comp05></my-comp05>
+        <!-- 有 slot 的时候显示 slot 的内容 -->
+        <my-comp05>
+            <p>slot 的内容</p>
+        </my-comp05>
+    </div>
+</div>
+
+<script>
+    Vue.component('my-comp01', {
+        render: function (createElement) {
+            if (this.show) {
+                return createElement('p', 'show 的值为 true');
+            } else {
+                return createElement('p', 'show 的值为 false')
+            }
+        },
+        props: {
+            show: {
+                type: Boolean,
+                default: false,
+            }
+        }
+    });
+
+    var ex1 = new Vue({
+        el: '#ex1',
+        data: {
+            show: false,
+        }
+    })
+</script>
+
+<script>
+    Vue.component('my-comp02', {
+        render: function (createElement) {
+            var nodes = [];
+            for (var i = 0; i < this.list.length; i++) {
+                nodes.push(createElement('p', this.list[i]));
+            }
+            return createElement('div', nodes);
+        },
+        props: {
+            list: {
+                type: Array,
+                default: []
+            }
+        }
+    });
+
+    var ex1 = new Vue({
+        el: '#ex2',
+        data: {
+            list: [
+                '先给一个值',
+                '再给一个值',
+                '三个值试试'
+            ]
+        }
+    })
+</script>
+
+<script>
+    Vue.component('my-comp03', {
+        render: function (createElement) {
+            var _this = this;
+            return createElement('div', [
+                createElement('input', {
+                    domProps: {
+                        value: this.value,
+                    },
+                    on: {
+                        input: function (event) {
+                            _this.value = event.target.value;
+                        }
+                    }
+                }),
+                createElement('p', 'value:' + this.value),
+            ])
+        },
+        data: function () {
+            return {
+                value: 'HelloRender',
+            }
+        }
+    })
+
+    var ex3 = new Vue({
+        el: '#ex3',
+    })
+</script>
+
+<script>
+    Vue.component('my-comp04', {
+        render: function (createElement) {
+            var _this = this;
+            //渲染聊天内容列表
+            if (this.list.length) {
+                var listNode = createElement('ul', this.list.map(function (item) {
+                    return createElement('li', item);
+                }));
+            } else {
+                var listNode = createElement('p', '暂无内容');
+            }
+            return createElement('div', [
+                listNode,
+                createElement('input', {
+                    attrs: {
+                        placeholder: '输入内容，按回车键发送',
+                    },
+                    style: {
+                        width: '200px',
+                    },
+                    on: {
+                        keyup: function (event) {
+                            //监测回车键
+                            if (event.keyCode !== 13) {
+                                return;
+                            }
+                            //添加输入的内容到聊天列表
+                            _this.list.push(event.target.value);
+                            //发送后，清空
+                            event.target.value = '';
+                        }
+                    }
+                }, )
+            ])
+        },
+        data() {
+            return {
+                value: '',
+                list: []
+            }
+        }
+    });
+
+    var ex4 = new Vue({
+        el: '#ex4'
+    })
+</script>
+
+<script>
+    Vue.component('my-comp05', {
+        render: function (createElement) {
+            if (this.$slots.default === undefined) {
+                return createElement('div', '没有使用 slot 时默认显示这一串');
+            } else {
+                return createElement('div', this.$slots.default);
+            }
+        }
+    })
+
+    var ex5 = new Vue({
+        el: '#ex5'
+    })
+</script>
