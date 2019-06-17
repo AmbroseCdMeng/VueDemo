@@ -12,20 +12,25 @@
     #note {
         background-color: lightgoldenrodyellow;
     }
+
+    .paragraph {
+        text-indent: 2em;
+        width: 100%;
+    }
 </style>
 
 <div id="note">
     <h3>Render 函数化组件</h3>
     <p><b>函数化组件</b></p>
-    <p style="text-indent:2em; width: 100%">
+    <p class="paragraph">
         Vue 提供了一个 functional 的布尔选项。设置为 true 时可以使组件无状态和实例，也就是没有 data 和 this 上下文。
         这样用 render 函数返回虚拟节点可以更容易渲染，因为函数化组件只是一个函数，渲染的开销要小很多。
     </p>
-    <p style="text-indent:2em; width: 100%">
+    <p class="paragraph">
         使用函数化组件时，Render 提供了第二个参数 context 来提供临时上下文。组件需要的 data、props、slots、children、
         parent 都是通过这个上下文来传递的。
     </p>
-    <p style="text-indent:2em; width: 100%">
+    <p class="paragraph">
         比如：this.level 写成 context.props.level。this.$slots.default 写成 context.children。
     </p>
     <p><b>函数化组件的应用场景</b></p>
@@ -89,6 +94,12 @@
     Vue.component('smart-item', {
         //函数化组件
         functional: true,
+        props: {
+            data: {
+                type: Object,
+                required: true
+            }
+        },
         //render 函数的第二个参数 context 传递上下文
         render: function (createElement, context) {
             function getComponent() {
@@ -103,12 +114,6 @@
                 }
             }, context.children)
         },
-        props: {
-            data: {
-                type: Object,
-                required: true
-            }
-        }
     });
 
     var ex1 = new Vue({

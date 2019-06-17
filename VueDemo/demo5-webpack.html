@@ -1,0 +1,185 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+<style>
+    #note,
+    #demo {
+        float: left;
+        width: 50%;
+        max-height: 648px;
+        overflow: auto;
+    }
+
+    #note {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .paragraph {
+        text-indent: 2em;
+        width: 100%;
+    }
+</style>
+
+<div id="note">
+    <h3>WebPack 使用</h3>
+    <p><b>下载安装</b></p>
+    <ul>
+        <li><b>1、安装 node.js 和 npm</b></li>
+        webpack 用来处理模块之间的依赖关系并进行打包
+        <li><b>2、npm init 命令初始化目录</b></li>
+        会生成 package.json 配置文件
+        <li><b>3、npm install webpack --save-dev 命令安装webpack开发依赖</b>
+            <ul>
+                <li> 当运行 npm run test 时，就会执行 echo Error: no text specified && exit 1 命令</li>
+                <li>当运行 npm run dev 时，就会执行 webpack-dev-server --open --config webpack-config.js 命令</li>
+                <li> 其中 --config 是指向 webpack-dev-server 读取的配置文件路径。这里读取上一步自行创建的 webpack-config.js 文件，</br>
+                    --open 会在执行时自动打开浏览器，默认地址 127.0.0.1:8080， 也可以通过配置 host 和 port 修改</li>
+            </ul>
+        </li>
+        特殊网络需求下，可使用 npm config set proxy http://username:password@server:port 设置代理
+        <li><b>4、npm install webpack-dev-server --save-dev 命令安装webpack开发服务依赖</b></li>
+        提供热更新、接口代理、服务器启动等功能
+        <li><b>5、新建 webpack-config.js 文件，初始化 webconfig 配置</b></li>
+        <li><b>6、package.json 配置启动脚本</b></li>
+        <li><b>7、main.js 作为入口文件</b>
+            <ul>
+                <li>webpack 最重要的两个配置就是 入口（Entry） 和 出口（Output）。</li>
+                <li>入口的作用是告知 webpack 从哪里开始寻找依赖并编译</li>
+                <li>出口的作用是配置编译后的文件存储位置和文件名</li>
+            </ul>
+        </li>
+        <li><b>8、webpack-config.js 中指定入口和出口配置</b>
+            <ul>
+                <li>entry 中的 main 为配置的单入口，webpakc 会从 main 文件开始执行</li>
+                <li>output 中 path 用来存放打包之后文件的输出目录。必填</li>
+                <li>publicPath 指定资源文件目录。可以写 CDN 的地址</li>
+                <li>filename 指定文件的名称</li>
+                整体意思为，打包之后入口文件为 dist/main.js ，使用时只需要在 html 中引入 main.js 即可
+            </ul>
+        </li>
+        <li><b>9、新建测试页面，引入 main.js</b>
+            引入 dist/main.js 文件
+        </li>
+        <li><b>10、npm run dev 打包启动</b></li>
+        webpack 3.X 以前 webpack 本身包含 CIL，在 4.X 版本，二者分离，需要单独安装
+        4.X 版本需要 npm i -g webpack-cli
+        <ul>npm 参数的缩写：
+            <li>i = install</li>
+            <li></li>-S = --save</li>
+            <li> -D = --save-dev</li>
+            <li> -g = --global</li>
+        </ul>
+        <li><b>webpack --progress --hide-modules 打包</b></li>
+        建议 webpack 全局安装并确认配置环境变量，否则会出现 webpack 不是内部命令的报错
+        <li><b>安装 css 加载器</b></li>
+        <ul>
+            <li>npm i css-loader -D</li>
+            <li>npm i style-loader -D</li>
+        </ul>
+        <li><b>webpack.config.js 文件中配置 Loader </b>
+            <ul>
+                module 对象中的 rules 属性可以指定 loaders 加载规则。必须包含 test 和 use
+                <li>
+                    test 是一个正则表达式，验证webpack编译过程中require或import导入的文件。/\.css$/ 意味 .css 结尾的文件
+                </li>
+                <li>
+                    use 是一个字符串或者数组，存放加载器。如果是数组，编译顺序时从后往前。
+                </li>
+            </ul>
+        </li>
+        <li><b>新建一个 css 文件。并在 main.js 入口文件中 import。 运行</b></li>
+        这样 CSS 样式是通过 JS 动态加载的，也就意味着样式存放在了 main.js 中，实际项目中，这样做不仅 js 体积大，而且不方便缓存。所以，就要用到 webpack 的插件（plugin）
+        <li><b>npm i extract-text-webpack-plugin 插件提取各地散落的 css 生成 main.css 文件</b>
+            <ul>
+                <li>webpack.config.js 文件导入插件</li>
+                <li>修改 loader 配置</li>
+                <li>提取 css 文件</li>
+                <li>页面中使用 link 导入</li>
+            </ul>
+            Error: chunk.js.entryponits<br>
+            npm install --save-dev extract-text-webpack-plugin@next
+        </li>
+    </ul>
+    <p class="paragraph">
+
+    </p>
+</div>
+
+<div id="demo">
+    <h3>webpack-config.js 初始化</h3>
+    <div id="ex1">
+        <pre>
+    export default config = {
+
+    };
+        </pre>
+        <i>如果还没有安装支持 ES6 的编译插件，可以如下：</i>
+        <pre>
+    var config = {
+
+    };
+    module.exports = config; 
+        </pre>
+        <h3>package.json 配置快速启动 service 的脚本</h3>
+        <pre>
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1 ",
+        "dev": "webpack-dev-server --host 127.0.0.1 --port 8080 --open --config webpack.config.js"
+    },
+        </pre>
+
+        <h3>webpack-config.js 中配置，指定入口配置和出口配置</h3>
+        <pre>
+    var path = require('path');
+
+    var config = {
+        entry: {
+            main: './main'
+        },
+        output: {
+            path: path.join(__dirname, './dist'),
+            publicPath: '/dist/',
+            filename: 'main.js'
+        }
+    };
+    
+    module.exports = config;
+        </pre>
+
+        <h3>webpack.config.js 文件中配置 Loader </h3>
+        <pre>
+    /*模块处理配置*/
+    module: {
+        /*处理规则*/
+        rules: [{
+            /* 增加对.css文件的处理 */
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ]
+        }]
+    }
+        </pre>
+        <h3>webpack.config.js 文件导入插件，并修改 loader 配置</h3>
+        <pre>
+    /* 配置文件中导入插件 */
+    var ExtractTextPlugin = require('extract-text-webpack-plugin');
+    module: {
+        rules: [{
+            use: ExtractTextPlugin.extract({
+                use: 'css-loader',
+                fallback: 'style-loader'
+            })
+        }]
+    },
+    plugins: [
+        /* 提取整合 css 文件 */
+        new ExtractTextPlugin("main.css")
+    ],
+        </pre>
+    </div>
+</div>
+
+<script>
+
+</script>

@@ -1,0 +1,183 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+<style>
+    #note,
+    #demo {
+        float: left;
+        width: 50%;
+        max-height: 648px;
+        overflow: auto;
+    }
+
+    #note {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .paragraph {
+        text-indent: 2em;
+        width: 100%;
+    }
+</style>
+
+<div id="note">
+    <h3>单文件组件和 vue-loader </h3>
+    <p><b>单文件组件就是 .vue 文件，使用 vue-loader 可以对其进行处理</b></p>
+
+    <ul>
+        使用 .vue 文件需要先安装以下依赖
+        <li>npm i -D vue</li>
+        <li>npm i -D vue-loader</li>
+        <li>npm i -D vue-style-loader</li>
+        <li>npm i -D vue-template-complier</li>
+        <li>npm i -D vue-hot-reload-api</li>
+        <li>npm i -D babel</li>
+        <li>npm i -D babel-loader</li>
+        <li>npm i -D babel-core 新版(7.X命名不同)： npm i -D @babel/core</li>
+        <li>npm i -D babel-plugin-transform-runtime</li>
+        <li>npm i -D babel-preset-es2015</li>
+        <li>npm i -D babel-runtime</li>
+    </ul>
+
+    <p><b>配置 webpack.config.js 来支持 .vue 文件和 ES6 语法</b></p>
+    <p class="paragraph">
+        vue-loader 在编译 .vue 文件时，会对 template、script、style、分别处理，所以，在 vue-loader 选项中多了一项 options 来
+        进一步对不同语言进行配置。比如在 css 进行处理时，会先通过 css-loader 解析，然后把处理结果交给 vue-style-loader 处理。
+    </p>
+    <p class="paragraph">当技术栈多样化时，可以给 template、script、style都指定不同的语言，然后配置 loaders 就可以了</p>
+    <p><b>配置 babel 编译 ES6</b></p>
+    <p class="paragraph">
+        在根目录下新建名为 .babelrc 的文件，写入 babel 配置，webpack 会依赖此配置文件来使用 babel 编译 ES6 代码：
+    </p>
+    <p><b>使用 .vue 文件</b></p>
+    <p class="paragraph">
+        在根目录下新建 demo.vue 文件，写入组件代码
+    </p>
+    <p class="paragraph">webpack 会将 .vue 文件编译成 Render 函数的形式。
+        .vue 组件时没有名称的，使用时，在父组件中对它自定义名称</p>
+    <p>在 main.js 中使用 .vue 组件</p>
+    <p class="paragraph">箭头函数中，this 指向和普通函数不同，箭头函数中的 this 对象就是定义时所在的对象，而不是使用时所在的对象</p>
+    <p><b>用于生产环境</b></p>
+    <ul>
+        <li>npm i -D url-loader</li>
+        <li>npm i -D file-loader</li>
+    </ul>
+    <p><b>配置 webpack.config.js</b></p>
+    <p><b>添加打包依赖</b></p>
+    <ul>
+        <li>npm i -D webpack-merge</li>
+        <li>npm i -D html-webpack-plugin</li>
+        <li>webpack4 移除了 UglifyJsPlugin 方法，所以还需要 npm i -D uglify-js & npm i -D uglifyjs-webpack-plugin</li>
+    </ul>
+    <p><b>添加 webpack.prod.config.js 作为生产环境配置文件</b></p>
+    <p><b>在 package.json 中加入 build 脚本并执行 npm run build</b></p>
+</div>
+
+<div id="demo">
+    <h3></h3>
+    <div id="ex1">
+        <p><b>配置 webpack.config.js 来支持 .vue 文件和 ES6 语法</b></p>
+        <pre>
+    module: {
+        /*处理规则*/
+        rules: [{
+            test: /\.vue$/,
+            loader: 'vue-loader',
+            options: {
+                loaders: {
+                    css: ExtractTextPlugin.extract({
+                        use: 'css-loader',
+                        fallback: 'vue-style-loader'
+                    })
+                }
+            }
+        }, {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+        }, {
+            test: /\.css$/,
+            use: ExtractTextPlugin.extract({
+                use: 'css-loader',
+                fallback: 'style-loader'
+            })
+        }]
+    },
+    plugins: [
+        /* 提取整合 css 文件 */
+        new ExtractTextPlugin("main.css")
+    ],
+        </pre>
+        <p><b>配置 babel 来支持 ES6 语法。 .babelrc 文件</b></p>
+        <pre>
+    {
+        "presets":["es2015"],
+        "plugins":["transform-runtime"],
+        "comments":false
+    }
+        </pre>
+        <p><b>demo.vue </b></p>
+        <pre>
+        &lt;template&gt;
+            &lt;div&gt;Hello{{name}}&lt;/div&gt;
+        &lt;/template&gt;
+
+        &lt;script&gt;
+        export default {
+            data() {
+                return {
+                    name: ".vue"
+                };
+            }
+        };
+        &lt;/script&gt;
+
+        &lt;style scoped&gt;
+        div {
+            color: #f60;
+            font-size: 24px;
+        }
+        &lt;/style&gt;
+        </pre>
+        <p><b>main.js 中使用 .vue</b></p>
+        <pre>
+    // 导入 Vue 框架
+    import Vue from 'vue';
+    // 导入 demo.vue 组件
+    import demo from './demo.vue';
+    
+    // 创建 vue 实例
+    new Vue({
+        el: '#demo',
+        render: createElement => createElement(Demo),
+        //等同于
+        //render:function(createElement){
+        //    return createElement(Demo);
+        //}
+        //等同于
+        //render:createElement => {
+        //    return createElement(Demo);
+        //}
+    })
+        </pre>
+        <p><b>生产环境配置 webpack.config.js</b></p>
+        <pre>
+    //生产环境添加配置 用来支持链接、图片、文件、字体等
+    {
+        test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+        //如果文件小于 1KB 则以 base64 形式加载，不生成文件
+        loader: 'url-loader?limit=1024'
+    }
+        </pre>
+        <p><b>webpack.prod.config.js 的配置</b></p>
+        <pre>
+        </pre>
+        <p><b>package.json 中加入生产环境打包脚本</b></p>
+        <pre>
+    "build": "webpack --progress --hide-modules --config webpack.prod.config.js",
+        </pre>
+    </div>
+</div>
+
+<script>
+
+</script>

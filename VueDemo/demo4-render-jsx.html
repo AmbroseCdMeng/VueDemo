@@ -1,0 +1,80 @@
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+<style>
+    #note,
+    #demo {
+        float: left;
+        width: 50%;
+        max-height: 648px;
+        overflow: auto;
+    }
+
+    #note {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .paragraph {
+        text-indent: 2em;
+        width: 100%;
+    }
+</style>
+
+<div id="note">
+    <p class="paragraph">
+        Render 函数最大的缺点在于当子节点嵌套过多时，阅读起来相当困难。
+    </p>
+    <p class="paragraph">
+        为了更好的书写和阅读，Vue 提供了插件 babel-plugin-transform-vue-jsx 来支持 JSX 语法。
+    </p>
+    <p class="paragraph">
+        JSX 是一种看起来像 HTML 但实际上是 JS 的语法扩展
+    </p>
+    <h3>HTML & createElement & JSX 的对比</h3>
+    <p><b>HTML</b></p>
+    <pre>
+        &lt;my-component :level="1"&gt;
+            &lt;span&gt;HTML的写法&lt;/span&gt;
+            文本内容
+        &lt;/my-component&gt;
+    </pre>
+    <p><b>Render createElement</b></p>
+    <pre>
+        new Vue({
+            el: '#ex1',
+            render(createElement){
+                return createElement('my-component', {
+                    props:{
+                        level: "1",
+                    }
+                },[
+                    createElement('span', 'createElement 的写法'),
+                    '文本内容'
+                ])
+            }
+        })
+    </pre>
+    <p><b>JSX -- 需要 webpack 中配置插件并编译后才可运行</b></p>
+    <pre>
+        new Vue({
+            el: '#ex1',
+            render(h){
+                return(
+                    &lt;my-component :level="1"&gt;
+                        &lt;span&gt;JSX的写法&lt;/span&gt;
+                        文本内容
+                    &lt;/my-component&gt;
+                )
+            }
+        })
+        
+    </pre>
+</div>
+
+<div id="demo">
+    <h3></h3>
+    <div id="ex1"></div>
+</div>
+
+<script>
+
+</script>
