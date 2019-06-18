@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --hide-modules --config webpack.prod.config.js",
-    "dev": "webpack-dev-server --host 127.0.0.1 --port 8080 --open --config webpack.config.js"
+    "dev": "webpack-dev-server --host 127.0.0.1 --port 8080 --open --history-api-fallback --config webpack.config.js"
   },
   "author": "MCD",
   "license": "ISC",
@@ -28,8 +28,10 @@
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
     "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.6",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
+    "vuex": "^3.1.1",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.7.1",

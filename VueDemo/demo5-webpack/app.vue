@@ -1,5 +1,10 @@
  <template>
-  <div>Hello{{name}}</div>
+  <div>
+    <span>Hello{{name}}</span>
+    <div>
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>

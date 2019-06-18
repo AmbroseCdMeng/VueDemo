@@ -14,7 +14,8 @@ var config = {
     output: {
         path: path.join(__dirname, './dist'),
         publicPath: '/dist/',
-        filename: 'main.js'
+        filename: 'main.js',
+        chunkFilename: '[name].chunk.js'
     },
     /*模块处理配置*/
     module: {
@@ -51,8 +52,12 @@ var config = {
     },
     plugins: [
         /* 提取整合 css 文件 */
-        new ExtractTextPlugin("main.css"),
-        new VueLoaderPlugin()
+        //new ExtractTextPlugin("main.css"),
+        new VueLoaderPlugin(),
+        new ExtractTextPlugin({
+            filename: '[name].css',
+            allChunks: true
+        })
     ],
 };
 
