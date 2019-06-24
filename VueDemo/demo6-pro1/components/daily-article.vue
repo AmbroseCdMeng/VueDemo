@@ -161,7 +161,7 @@ export default {
   border-bottom: 1px dashed #e3e8ee;
 }
 
-.daily-comments-avatar {
+.daily-comment-avatar {
   width: 50px;
   height: 50px;
   float: left;
