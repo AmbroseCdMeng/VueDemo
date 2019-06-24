@@ -37,6 +37,7 @@ npm i -D url-loader
 
 
 /******************** project start ********************/
+npm install         安装依赖
 node proxy.js       运行代理
 npm run dev         运行项目
 

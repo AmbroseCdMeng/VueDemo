@@ -81,17 +81,17 @@ export default {
       $.ajax.get("news/" + this.id).then(res => {
         //将文章中的图片地址替换为代理的地
         res.body = res.body.replace(
-          /src = "http/g,
+          /src="http/g,
           'src="' + $.imgPath + "http"
         );
         res.body = res.body.replace(
           /src="https/g,
-          'scr="' + $.imgPath + "https"
+          'src="' + $.imgPath + "https"
         );
         this.data = res;
         //返回文章顶端。
         //注意：.daily-article 并没有使用 overflow:auto 滚动，而是自然高度，所以这里让页面返回顶端并不能使用 .daily-article 的 ScollTop = 0
-        windows.scrollTo(0, 0);
+        window.scrollTo(0, 0);
 
         //获取评论信息
         this.getComments();

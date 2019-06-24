@@ -4,8 +4,8 @@
  *      图片前缀地址：https://pic1.zhihu.com
  * 
  *  添加如下两个代理并监听对应的端口后：
- *      访问 http://127.0.0.1:8010 其真实地址为 http://news-at.zhihui.com/api/4
- *      访问 http://127.0.0.1:8011 其真实地址为 http://pic4.zhihu.com/
+ *      访问 http://127.0.0.1:8010 其真实地址为 http://news-at.zhihu.com/api/4
+ *      访问 http://127.0.0.1:8011 其真实地址为 https://pic4.zhihu.com/
  * 
  *  在终端使用 node 启动代理服务
  *      node proxy.js
@@ -75,4 +75,9 @@ const imgServer = http.createServer((req, res) => {
  */
 imgServer.listen(imgPort, hostname, () => {
     console.log(`图片代理运行在 http://${hostname}:${imgPort}/`);
-})
+});
+
+// http://news-at.zhihu.com/api/4/news/3892357
+// http://127.0.0.1:8010/news/3892357
+// https://pic4.zhimg.com/v2-b44636ccd2affac97ccc0759a0f46f7f.jpg
+// http://127.0.0.1:8011/img/https://pic4.zhimg.com/v2-b44636ccd2affac97ccc0759a0f46f7f.jpg
