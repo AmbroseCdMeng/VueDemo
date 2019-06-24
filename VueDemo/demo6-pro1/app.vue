@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import $ from "./libs/util.js";
+import $ from "./lib/util.js";
 import Item from "./components/item.vue";
 import dailyArticle from "./components/daily-article.vue";
 

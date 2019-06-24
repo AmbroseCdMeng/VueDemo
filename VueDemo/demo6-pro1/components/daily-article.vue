@@ -21,7 +21,7 @@
 
 <script>
 import Time from "../directives/time";
-import $ from "../libs/util";
+import $ from "../lib/util";
 
 export default {
   directives: { Time },

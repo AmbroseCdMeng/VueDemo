@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import $ from "../libs/util.js";
+import $ from "../lib/util.js";
 export default {
   props: {
     data: { type: Object }

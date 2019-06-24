@@ -73,6 +73,6 @@ const imgServer = http.createServer((req, res) => {
 /**
  * 监听 8011 端口
  */
-apiServer.listen(port, hostname, () => {
-    console.log(`图片代理运行在 http://${hostname}:${port}/`);
+imgServer.listen(imgPort, hostname, () => {
+    console.log(`图片代理运行在 http://${hostname}:${imgPort}/`);
 })
